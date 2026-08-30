@@ -57,8 +57,13 @@ def main():
     prompt = PROMPT % (" / ".join(TAGS), json.dumps(items, ensure_ascii=False))
     print(f"送出 {len(items)} 個 repo 給 claude -p …")
 
-    p = subprocess.run(["claude", "-p", prompt],
-                       capture_output=True, text=True, timeout=900)
+    # claude -p 的耗時變動很大（實測 5.6 分鐘～超過 15 分鐘），這裡要留足餘裕。
+    # 必須小於外層 shell 的 1800 秒，否則會被外層砍掉、看不到這裡的錯誤訊息。
+    try:
+        p = subprocess.run(["claude", "-p", prompt],
+                           capture_output=True, text=True, timeout=1500)
+    except subprocess.TimeoutExpired:
+        sys.exit("claude -p 超過 1500 秒未回應，本次放棄（下週會重跑）")
     if p.returncode != 0:
         sys.exit(f"claude 失敗：{p.stderr[:500]}")
 
