@@ -7,7 +7,7 @@
 
 用法：  python3 scripts/annotate.py [YYYY-MM-DD]
 """
-import json, os, subprocess, sys, datetime
+import json, os, subprocess, sys, time, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATE = sys.argv[1] if len(sys.argv) > 1 else datetime.date.today().isoformat()
@@ -40,6 +40,32 @@ same_owner_in_board > 1 表示同一帳號在本榜佔了多席。
 """
 
 
+BATCH = 10          # 每批幾個 repo。40 個一次送實測要 6～25 分鐘且會整批失敗。
+TIMEOUT = 600       # 每批上限（秒）。小批次不需要 1500。
+
+
+def ask(items, attempt=1):
+    """送一批出去，回傳 dict。失敗回 None（讓呼叫端決定要不要重試）。"""
+    prompt = PROMPT % (" / ".join(TAGS), json.dumps(items, ensure_ascii=False))
+    try:
+        p = subprocess.run(["claude", "-p", prompt],
+                           capture_output=True, text=True, timeout=TIMEOUT)
+    except subprocess.TimeoutExpired:
+        print(f"    逾時（{TIMEOUT}s），第 {attempt} 次")
+        return None
+    if p.returncode != 0:
+        print(f"    claude rc={p.returncode}：{p.stderr[:200]}")
+        return None
+    txt = p.stdout.strip()
+    if txt.startswith("```"):
+        txt = txt.split("\n", 1)[1].rsplit("```", 1)[0]
+    try:
+        return json.loads(txt)
+    except json.JSONDecodeError as ex:
+        print(f"    回傳不是合法 JSON：{ex}")
+        return None
+
+
 def main():
     if not os.path.exists(RAW):
         sys.exit(f"找不到 {RAW}，請先跑 fetch.py")
@@ -55,41 +81,44 @@ def main():
                 "readme": r.get("readme", "")[:700], "signals": r["signals"],
             })
 
-    prompt = PROMPT % (" / ".join(TAGS), json.dumps(items, ensure_ascii=False))
-    print(f"送出 {len(items)} 個 repo 給 claude -p …")
+    batches = [items[i:i + BATCH] for i in range(0, len(items), BATCH)]
+    print(f"{len(items)} 個 repo，分 {len(batches)} 批（每批 {BATCH}）")
 
-    # claude -p 的耗時變動很大（實測 5.6 分鐘～超過 15 分鐘），這裡要留足餘裕。
-    # 必須小於外層 shell 的 1800 秒，否則會被外層砍掉、看不到這裡的錯誤訊息。
-    try:
-        p = subprocess.run(["claude", "-p", prompt],
-                           capture_output=True, text=True, timeout=1500)
-    except subprocess.TimeoutExpired:
-        sys.exit("claude -p 超過 1500 秒未回應，本次放棄（下週會重跑）")
-    if p.returncode != 0:
-        sys.exit(f"claude 失敗：{p.stderr[:500]}")
+    notes = {}
+    failed = []
+    for bi, batch in enumerate(batches, 1):
+        names = [x["name"] for x in batch]
+        t0 = time.time()
+        got = ask(batch)
+        if got is None:                     # 只重試該批，不是整個重來
+            print(f"  批 {bi}/{len(batches)} 失敗，重試一次")
+            got = ask(batch, attempt=2)
+        el = time.time() - t0
+        if got is None:
+            failed.extend(names)
+            print(f"  批 {bi}/{len(batches)} ✗ 放棄（{el:.0f}s）")
+            continue
+        notes.update({k: v for k, v in got.items() if k in names})
+        print(f"  批 {bi}/{len(batches)} ✓ {len(got)} 筆（{el:.0f}s）")
 
-    txt = p.stdout.strip()
-    if txt.startswith("```"):
-        txt = txt.split("\n", 1)[1].rsplit("```", 1)[0]
-    try:
-        notes = json.loads(txt)
-    except json.JSONDecodeError as ex:
-        open(f"{ROOT}/output/annotate-raw.txt", "w").write(txt)
-        sys.exit(f"回傳不是合法 JSON（原文存到 output/annotate-raw.txt）：{ex}")
+    if not notes:
+        sys.exit("所有批次都失敗，沒有產出")
 
     missing = [i["name"] for i in items if i["name"] not in notes]
     no_en = [k for k, v in notes.items() if not v.get("what_en")]
-    if no_en:
-        print(f"⚠️  {len(no_en)} 筆缺英文說明：{no_en[:5]}")
     bad = [k for k, v in notes.items() if v.get("tag") not in TAGS]
     if missing:
         print(f"⚠️  {len(missing)} 個 repo 沒拿到評註：{missing[:5]}")
+    if no_en:
+        print(f"⚠️  {len(no_en)} 筆缺英文說明：{no_en[:5]}")
     if bad:
         print(f"⚠️  tag 不在清單內：{bad[:5]}")
 
     json.dump(notes, open(OUT, "w"), ensure_ascii=False, indent=1)
-    print(f"notes -> data/notes/{DATE}.json（{len(notes)} 筆）")
+    print(f"notes -> data/notes/{DATE}.json（{len(notes)}/{len(items)} 筆）")
+    # 部分失敗仍算成功：網頁該有的還是會有，缺的那幾筆下週補
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
