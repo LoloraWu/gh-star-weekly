@@ -1,0 +1,202 @@
+{
+ "sapientinc/PRAXIST": {
+  "what": "Praxist 是一套自主研究系統，針對目標可量化、可由電腦執行的研究任務。它會協調多個平行研究 peer、按任務歸屬的評估機制、可留存的證據，以及跨世代的結果綜合，把研究視為持續進行的流程而非零散的 prompt。提供一鍵安裝精靈，涵蓋授權、runtime 設定與憑證管理。",
+  "verdict": "自主研究 agent 是當前最熱的題材之一，加上 sapientinc（HRM 那個團隊）本身有知名度，三天四千星不意外。有組織背書、有授權條款、有完整安裝流程，不是空殼。",
+  "tag": "real"
+ },
+ "HEJustinSun/my-girlfriend-jingtian-latex": {
+  "what": "一個 5×8 英寸的 XeLaTeX 排版工程，主題為「我的女友景甜」。編譯需要 XeLaTeX 與標準 TeX Live 發行版。",
+  "verdict": "典型整活迷因：帳號註冊 5 天、只有這一個 repo，靠獵奇標題在中文社群瘋傳，followers 三天漲到三千多。內容本身只是個 LaTeX 模板，熱度純粹來自梗。",
+  "tag": "novelty"
+ },
+ "b-nnett/grok-bot-0.18-reconstructed": {
+  "what": "對公開發行的 Grok Bot 0.18.0 macOS 應用進行非官方、以原始碼為導向的重建。包含可讀的 TypeScript 實作（涵蓋 Electron、host、coordinator、本地執行、協定與 renderer 各層），以及能將這些原始碼重新打包成可運作 macOS 應用的確定性工具鏈。另加入推理路由、MCP 工具與用量追蹤等實驗功能。",
+  "verdict": "逆向重建知名閉源 app 本身就是硬工程，帳號有六年歷史和其他作品，內容可信。星星有一部分是 Grok 品牌的光環，但實質內容撐得起。",
+  "tag": "real"
+ },
+ "tobi/walgit": {
+  "what": "walgit 是一個以單一二進位檔運行的 git 伺服器，直接以 S3 或 GCS bucket 作為儲存後端，無資料庫、無 leader、無需在意的本地狀態。支援 smart HTTP 抓取與推送、bundle URI 靜態 clone、Git LFS、瀏覽用 web UI、JSON API 與 SDK、per-repo 推送策略與 webhook。每台執行 walgit 的機器都只是可拋棄的快取，bucket 才是儲存庫本體。",
+  "verdict": "作者是 Shopify CEO Tobi Lütke，5900+ followers，光名字就能帶一波星。專案本身設計也確實有料，但同等品質掛在無名帳號下不會有這個速度。",
+  "tag": "fame"
+ },
+ "XiaoDuoYa/codex-with-chatgpt": {
+  "what": "把 ChatGPT 網頁版當作 Codex 編碼會話的規劃與審查大腦，執行權保留在 Codex。透過 OAuth 保護的唯讀 MCP 連線讓 ChatGPT 按需讀取工作區程式碼，不上傳整個倉庫，不需 API key 也不走逆向代理。",
+  "verdict": "精準踩中「訂閱額度閒置、API 額度太貴」這個普遍痛點，兩天破千星靠的是題材而非作者（11 followers）。做法本身合規不逆向，有一定實作，但本質是蹭額度套利熱潮。",
+  "tag": "trend"
+ },
+ "wide-trace/open-higgsfield": {
+  "what": "自稱 Higgsfield AI 的開源替代品，提供影像與影片生成的統一工作室介面：一個 prompt bar 接 40 個模型（12 個影像、28 個影片），各模型有自己的設定，完成的生成結果集中在同一個圖庫。提供免安裝的線上託管版本，使用者填入自己的平台金鑰即可生成。",
+  "verdict": "帳號 4 天、4 followers、僅此一 repo、無授權條款，卻主打「到我們託管的網站貼上你的 id:secret 金鑰」——典型金鑰釣魚模式，加上名稱直接蹭 Higgsfield 品牌。高度可疑，建議榜單標警示或剔除。",
+  "tag": "scam"
+ },
+ "bryllim/workout-guide": {
+  "what": "開放的健身動作插圖庫，收錄 302 個動作、每個動作三張一致風格的分解圖，並提供框架中立的 typed npm 套件與可搜尋的靜態圖庫網站。原始姿勢圖來自 CC BY-SA 4.0 授權的 Everkinetic，作者在其上擴充動作、動畫幀、標準化素材與結構化 metadata。",
+  "verdict": "授權交代清楚、資產真實可用、npm 套件完整，是健身 app 開發者會直接收藏的資源型 repo。老帳號加上實用性，星星來得正當。",
+  "tag": "real"
+ },
+ "MetaMask-AI/metamask-desktop": {
+  "what": "自稱為 Windows、macOS 與 Linux 的 MetaMask 桌面錢包應用，宣稱提供以太坊錢包管理、Web3 provider 與 DeFi/NFT 生態接入。README 聲明與 ConsenSys 無關聯。",
+  "verdict": "帳號名直接冒用 MetaMask 品牌、44 天新號、0 followers、僅此一 repo、無授權條款，README 還殘留 ChatGPT 生成痕跡（:contentReference[oaicite:0]）。加密錢包＋冒名＝幾乎可斷定是釣魚盜幣，兩天近千星恐怕也有刷星成分。榜單應剔除並考慮檢舉。",
+  "tag": "scam"
+ },
+ "Tencent/WeMM-Embedding": {
+  "what": "騰訊微信視覺團隊開發的通用多模態 embedding 模型家族，為文字、圖片、影片、視覺文件與交錯多模態輸入提供統一表徵。提供 2B、4B、9B 三種規模，支援 Matryoshka 多維度輸出，模型已上架 Hugging Face。",
+  "verdict": "大廠正經模型發布，多模態檢索是實際需求，星星反映的是模型本身的價值加上騰訊的發布管道。無可挑剔的 real。",
+  "tag": "real"
+ },
+ "themartiano/try-omarchy": {
+  "what": "把上游 Omarchy 桌面環境打包成 Apple Silicon Mac 上的原生硬體加速應用。內含專案自建的 ARM64 Arch Linux 映像（配置 Omarchy）、使用 Apple Hypervisor Framework 的 QEMU runtime，以及 Swift/AppKit 啟動器，套件與上游版本皆有 pin 定與雜湊記錄。非官方專案。",
+  "verdict": "Omarchy 是 DHH 帶起的當紅炸子雞，「Mac 上一鍵試玩」精準接住了圍觀流量。不過打包工程本身做得扎實（pin 版本、provenance），算是蹭熱點裡有真功夫的。",
+  "tag": "trend"
+ },
+ "fuxicodex/Fuxi": {
+  "what": "一個在終端機運行的 AI coding agent，提供讀碼、改檔、執行命令與工具調用的 TUI，支援跨 LLM 供應商的成本感知路由與自動容錯移轉。自我定位為供應商中立的 Claude Code 替代品，可接任何 OpenAI 相容模型，宣稱以 Go 打造、單一靜態二進位發布。",
+  "verdict": "帳號 76 天、僅此一 repo，README 說 Built in Go 但 repo 主語言是 Python，行銷話術密度高——「Claude Code 開源替代品」這條賽道本週已經人滿為患。26 天靠題材滾到近三千星，實質存疑。",
+  "tag": "trend"
+ },
+ "zouyuxuan122/Deepseek-Harness-EAC": {
+  "what": "把官方 DeepSeek Harness（dsh）封裝成開箱即用的 Windows 桌面客戶端，內建 Node.js 運行時與 dsh CLI，提供安裝版與便攜版。在其上疊加社群生態：10 款內建皮膚、插件安裝快照與回滾、檔案樹、行級 diff、持久終端等功能。",
+  "verdict": "本週同時有至少四個「DSH 桌面殼」上榜（EAC、dsh-desktop×2、harness-studio），功能高度重疊，全是 DeepSeek Harness 爆紅後的套殼潮。這是其中星星最多的一個，但同質化嚴重。",
+  "tag": "flood"
+ },
+ "SaladDay/pi-from-scratch": {
+  "what": "用約 600 行 TypeScript 從零實作一個迷你版 pi coding agent 的教學專案，沿著 pi 的資料流拆解，逐步做出能讀檔、改碼、執行命令的 agent。配套網站將文章與源碼並排呈現，閱讀時右側編輯器逐步補全程式碼，並提供可逐行斷點的 trace 跟蹤。",
+  "verdict": "教學品質看得出用心（手寫文章、互動式閱讀、trace 設計），是 agent 熱潮裡少見的紮實教育內容。README 尾部掛了兩個 API 中轉商贊助，商業味略重但瑕不掩瑜。",
+  "tag": "real"
+ },
+ "Tiger3807861189/DeepSeek-V4-J-Space-Capability-Realization-Report": {
+  "what": "一份宣稱 J-Space 認知套件能降低 DeepSeek V4 能力釋放損耗的評測報告，對 Terminal Bench、DeepSWE、GAIA 等基準子集做有無 J-Space 的對照測試，並列出與 GLM、Kimi、Opus 等模型的比較表。倉庫本身無程式碼。",
+  "verdict": "帳號 41 天、純 Markdown 報告、主表數據裡 J-Space 的提升幅度微乎其微（37.8→37.8、51.5→51.9），本質是替自家「J-Space 套件」導流的偽 benchmark 行銷。蹭 DeepSeek V4 熱度，內容價值趨近於零。",
+  "tag": "trend"
+ },
+ "Zyrexnn/Cybermes": {
+  "what": "面向授權滲透測試與 bug bounty 的自動化攻擊性安全 agent 框架，基於 Hermes Agent 與多模型 LLM 編排。包含 Go 效能工具、200+ 模組化攻擊性安全 playbook、token 優化的串流管線，並支援 MCP 讓 AI 編碼環境直接調用，也可作為獨立 CLI 執行。",
+  "verdict": "帳號兩年、51 個 repo，有持續產出的痕跡；offensive security × agent 是雙熱點疊加，但 playbook 與工具鏈看起來是真做了東西。可以給 real，但值得追蹤實際可用性。",
+  "tag": "real"
+ },
+ "vibeinging/dsh-desktop": {
+  "what": "社群維護的 DeepSeek Harness 桌面發行版（插件集成版），直接運行官方 dsh npm 運行時與官方 web app，預裝一組固定並驗證過的社群 Bundle。對話、檔案、Git、終端、任務、Worktree 與插件市場運行在同一個 DSH Profile 中，macOS 版有 Developer ID 簽名與公證。",
+  "verdict": "四個同期 DSH 桌面殼之一，與 Deepseek-Harness-EAC、dsh_desktop、harness-studio 高度雷同。有做簽名公證算相對認真，但擺脫不了套殼潮的本質。",
+  "tag": "flood"
+ },
+ "myYangyunfan/dsh_desktop": {
+  "what": "DeepSeek Harness 的 Windows/macOS 開箱即用客戶端，內建獨立 Node 運行時與全部官方插件，免裝環境、雙擊啟動。v0.5.0 起桌面殼從 Electron 遷移到 Tauri 2，提供便攜版與安裝版，附深色無邊框視窗、桌面寵物、會話管理與餘額小部件等功能。",
+  "verdict": "又一個 DSH 套殼，帳號 106 天、0 followers。功能清單和同期幾個殼幾乎互為鏡像，桌面寵物小鯨魚算是唯一記憶點。典型 flood。",
+  "tag": "flood"
+ },
+ "jundizhou/easy-stock": {
+  "what": "面向個人投資者的 A 股 AI 投研桌面應用，以 Go 開發。聚合開盤啦、東方財富、新浪、財聯社等來源的行情、K 線、題材與資訊數據，將趨勢、題材、連板、情緒整理成可計算的領域模型，並透過定時調度與 agent 自動收集文章、複盤大 V 觀點、形成本地研究記憶。",
+  "verdict": "AI 炒股是中文圈長青熱題，但這個做了完整的數據聚合和領域建模，不是聊天框套殼。作者幾乎沒有 followers，星星應是靠 QQ 群和實用性滾起來的，可信。",
+  "tag": "real"
+ },
+ "fufankeji/deepseek-harness-studio": {
+  "what": "DeepSeek Harness 的零代碼桌面增強工具，支援 Windows 與 macOS。提供插件自動發現與推送、AI 智能推薦、免命令行的搜尋／校驗／安裝／啟停／卸載、Workspace 會話管理、長會話目錄全文跳轉，以及 Preset 廣場與七套內建工作流。",
+  "verdict": "第四個同期 DSH 桌面工具，出品方「賦范空間」是做課程的機構帳號，行銷包裝完整。功能與其他三個殼大量重疊，歸入這波套殼潮。",
+  "tag": "flood"
+ },
+ "HanyuanWang/LiveStream-Agent-Studio": {
+  "what": "面向抖音直播電商團隊的 Windows 本地優先 AI Agent 工作台，把主播發現、直播拆解、話術與流量複盤、短視頻內容編導整合到統一入口，含語音轉文字等能力。README 提醒先用非敏感素材驗證環境與輸出品質再投入正式業務。",
+  "verdict": "直播電商×AI agent 是精準的中文流量題材，帳號八年但僅此一 repo，八天四百多星的速度對這麼垂直的工具偏快。內容看起來存在但很難驗證實際成熟度，先歸 trend 觀察。",
+  "tag": "trend"
+ },
+ "Awaker-OTE/readingspace-mn": {
+  "what": "MarginNote 4 的閱讀工作流插件，把 AI 解釋、問答、詞典翻譯、音頻朗讀、瀏覽器查資料等動作放到選區、摘錄和腦圖卡片旁邊，減少在閱讀器與其他工具間切換。支援將摘錄或卡片推送到本機 Obsidian，並可連接使用者自己的 AI 服務商與模型。",
+  "verdict": "本體是 MarginNote 插件，落在 Obsidian 榜有點勉強（只有推送到 Obsidian 這一項），但確實有這個整合，不算硬蹭。小眾工具做得算細。",
+  "tag": "real"
+ },
+ "NimaChu/my-wiki": {
+  "what": "可直接交給 AI Agent 使用的本地優先知識管理專案，提供 CLI、可視化知識宇宙、知識維護與 Viki 問答。由 agent 負責知識全生命週期：保存來源、提取正文、蒸餾概念、建立證據鏈接。知識以 Markdown 與原始檔保存在本地資料夾，另附可單獨安裝到各 AI 客戶端的輕量 Skill。",
+  "verdict": "README 明寫「默認不需要 Obsidian」——它出現在 Obsidian 榜純粹因為關鍵字以否定句形式被掃到，分類錯置。專案本身是正經的知識庫工具，但不屬於這個榜。",
+  "tag": "mistag"
+ },
+ "KIRVO-REPORTING/video-to-notes": {
+  "what": "本地優先的視頻轉筆記 CLI 兼 Codex skill，把 YouTube、Bilibili、TED 等 yt-dlp 支援的視頻連結轉成逐字稿、帶時間戳的 AI 摘要與可搜尋的 HTML 報告，可選導出到 Notion 或 Obsidian。優先使用視頻自帶字幕，沒有合適字幕時才用本地 Whisper 轉寫。",
+  "verdict": "caption-first 再 fallback Whisper 的設計務實，時間戳可回溯到源頭是加分項。小而實用的工具，星速平穩，正常上榜。",
+  "tag": "real"
+ },
+ "AndrewRao114/vault-activity-heatmap": {
+  "what": "為 Obsidian vault 生成 GitHub 風格貢獻熱力圖的插件，支援桌面、iOS 與 Android 跨裝置。編輯強度決定當日方格深淺，點擊某天可回顧變更內容與待辦，另有每日任務、編輯時間線、AI 週/月摘要、通知與面板主題自訂。",
+  "verdict": "把 GitHub 貢獻圖搬進筆記 vault 是討喜的點子，跨裝置支援做到位。帳號只有這一個 repo 但內容具體，正常的小工具上榜。",
+  "tag": "real"
+ },
+ "drpwchen/lecture-to-notes": {
+  "what": "把講座或會議錄影轉成結構化、附投影片截圖的筆記，並生成同步 HTML 檢視器：視頻、帶時間戳逐字稿與精選摘要同頁呈現，播放時高亮對應筆記，點時間戳可跳轉視頻。昂貴步驟全在本地 GPU 執行（Whisper ASR、抽幀、OCR、本地視覺模型），LLM 只在最後負責成文，設計目標是每個結論可追溯到逐字稿時刻。",
+  "verdict": "同作者兩個 repo 同週上榜（另一個是 textbook-to-note），是醫師背景開發者的真實工作流結晶，traceability 的設計理念清晰。品質型上榜。",
+  "tag": "real"
+ },
+ "drpwchen/textbook-to-note": {
+  "what": "把自有的 PDF 教科書轉成 AI 可搜尋的知識庫與結構化、全引用的筆記，含圖表。本地優先的管線讓繁重處理幾乎不花 LLM token，只把前沿模型留給最後的筆記綜合。作者為醫學背景，動機是無法再手工維持數千則筆記的品質。",
+  "verdict": "與 lecture-to-notes 同作者同週雙上榜，動機真實、token-frugal 的設計有想法。兩個 repo 是互補而非灌水，都給 real。",
+  "tag": "real"
+ },
+ "armourinfosec/Enterprise-Windows-Infrastructure-Security": {
+  "what": "以 Obsidian vault 形式發布的四個月實驗導向課程，涵蓋企業 Windows 服務全棧：作業系統與命令行、Active Directory、Group Policy、DNS、DHCP、檔案與網頁服務、遠端存取、備份、監控，以及防禦加固與 purple team 實踐。",
+  "verdict": "同一組織同週佔三席（Windows、Linux、PHP 三套課程），內容是真實的教材但發布策略是批量鋪榜。三個裡星星最多的一個，仍歸 flood 以記錄這個模式。",
+  "tag": "flood"
+ },
+ "armourinfosec/Linux-Administration-and-Server-Hardening": {
+  "what": "四個月實驗導向的 Linux 管理與伺服器加固課程，雙發行版並行（CentOS Stream 10 / Debian 12），含 29 個模組、20 個實驗與 10 個企業專案，對齊 RHCSA/LFCS 認證。涵蓋命令行、用戶權限、套件儲存、網路、自動化與 DNS、DHCP、Apache、Samba 等基礎服務。",
+  "verdict": "signals 顯示 obsidian 關鍵字完全沒出現在名稱/描述/README/topics——它落在 Obsidian 榜是分類誤判。同時也是 armourinfosec 三連發之一，雙重問題取 mistag。",
+  "tag": "mistag"
+ },
+ "armourinfosec/Secure-PHP-Development": {
+  "what": "一個月實驗導向的安全 PHP 開發課程筆記，從現代 PHP 8.2/8.3 語言基礎、OOP、資料庫與 REST API，到完整對映 OWASP 的 PHP 漏洞目錄，採「先利用再修復」的實驗形式。CC BY 4.0 授權。",
+  "verdict": "armourinfosec 同週第三席。教材本身有結構，但三套課程同步鋪榜的模式明顯，歸入同源灌榜。",
+  "tag": "flood"
+ },
+ "bepitulaz/obsidian-multivault-mcp": {
+  "what": "一個 MCP 伺服器，讓 Claude 讀寫存放在 VPS 上的 Obsidian vault，單一部署即可服務多個 vault 與多位使用者。HTTP 模式下所有人共用同一個連接器 URL，由登入 passphrase 決定路由到哪個私人 vault；stdio 模式則由 Claude Desktop 啟動時指定的 vault 路徑決定。",
+  "verdict": "多用戶多 vault 是現有 Obsidian MCP 們沒覆蓋的縫隙，作者是 15 年老帳號。規模不大但定位清楚。",
+  "tag": "real"
+ },
+ "ThinkOffApp/CarWatch": {
+  "what": "把車變成聊天室裡的 agent：Raspberry Pi 5 搭配行車記錄器與本地 AI，完全離線運行 35B 參數模型。它會像其他 agent 一樣傳訊息給你：出發、抵達、行程摘要、碰撞時的行車記錄片段，並支援在駕駛座用語音提問、從車內喇叭回答，可從手機批准與回覆。",
+  "verdict": "「跟自己的車對話而且完全離線」是絕佳的展示題材，發布視頻帶動傳播。硬體整合是真做出來的，獵奇外皮下有實作，但星星主要衝著獵奇來。",
+  "tag": "novelty"
+ },
+ "ygelfand/echolocal": {
+  "what": "把第二代 Amazon Echo Dot 改造成完全本地的 Home Assistant 語音衛星的純 Go 替代韌體，實作 ESPHome 原生 API，讓 Home Assistant 像發現 ESPHome 裝置一樣發現它。支援裝置端本地喚醒詞、可獨立定址的 LED 光環動畫、原生喇叭與多房間播放、光感測器與藍牙代理，需先解鎖裝置。",
+  "verdict": "把亞馬遜雲設備奪舍成本地開源裝置，是 HA 社群最愛的那種硬核 hack，用純 Go 講 ESPHome 協議尤其漂亮。貨真價實。",
+  "tag": "real"
+ },
+ "Ali-Marandi/SmartHome-Automation": {
+  "what": "本地優先的 Windows 智慧家庭桌面控制中心（Horizon），整合 Home Assistant、安全 MQTT 會話、經由既有 Zigbee2MQTT 閘道的裝置發現與控制，以及可解釋的本地能源預測。示範工作區不需雲端帳號，HA 的 token 僅保留在運行中的 app 進程、斷開即清除。",
+  "verdict": "功能面看起來完整，但無授權條款、repo 名極其泛用、README 行銷腔重，與典型社群專案的氣質不太一致。暫給 real 但保留觀察。",
+  "tag": "real"
+ },
+ "fabiovit/casa-dashboard": {
+  "what": "Home Assistant 的完整 app 風格儀表板，不依賴傳統 Lovelace 卡片，設計上可適應不同格局的住家，支援 HACS 安裝。v4.x 提供深淺色主題與動態房間架構，v4.1.1 為整併版本，統一了前後端版本號。",
+  "verdict": "HA 儀表板是社群常青需求，這個做出了完整的 app 感。版本歷史顯示有持續維護，正常上榜。",
+  "tag": "real"
+ },
+ "FezVrasta/ha-rbac": {
+  "what": "為 Home Assistant 加上角色式存取控制（RBAC）。原生 HA 只有管理員與普通用戶兩級，普通用戶仍看得到所有攝影機、門鎖與感測器；這個整合讓你定義角色決定每個人能看到與操作的範圍，例如訪客只看到燈、小孩有自己的儀表板、只有你能碰門鎖與設定。",
+  "verdict": "作者是 popper.js 的 Federico Zivolo（2157 followers），但 RBAC 是 HA 社群喊了多年的真實痛點，一週 46 星的量級也還在有機範圍。實質需求為主、名氣為輔。",
+  "tag": "real"
+ },
+ "sionetta/wm_animated_ha_card": {
+  "what": "Home Assistant 的洗衣機動畫 Lovelace 卡片，讓接在智慧插座上的普通洗衣機在儀表板上呈現為動畫小部件：運轉時衣物在玻璃窗後翻滾、藍色弧線繞門旋轉、機身顯示經過時間。動畫為純 CSS/SVG、無外部資源，並尊重 prefers-reduced-motion。",
+  "verdict": "小而美的單一用途卡片，動畫細節做得講究。這種可愛型小工具在 HA 圈自然會被轉發，正常量級。",
+  "tag": "real"
+ },
+ "j0sp0r/m3-cards": {
+  "what": "Material 3 風格的 Home Assistant 原生 Lovelace 卡片集，以 TypeScript 與 Lit 打造，共 29 張卡片共用同一設計語言，單一 bundle 註冊，不依賴 button-card、card-mod 等常見前置套件。目前為 beta，設定選項仍可能變動。",
+  "verdict": "去依賴化＋統一設計語言切中 HA 主題黨的痛點，29 張卡的工作量是實打實的。誠實標 beta，好感度加分。",
+  "tag": "real"
+ },
+ "d4vid87/weatherdesk": {
+  "what": "自架的氣象站儀表板，為掛牆平板設計，支援 Tempest、Ecowitt、Ambient、Davis、AcuRite 等станція或無氣象站純預報模式。純 Vanilla JS 與原生 ES modules，無建置步驟、無框架、無圖表庫、無後端，所有請求由瀏覽器直連免費公開 API，雷達來自作者自製的 NEXRAD 檢視器。",
+  "verdict": "無建置、無後端的極簡技術選型本身就是賣點，氣象站玩家是黏著度高的小眾。作者帳號新但東西具體。",
+  "tag": "real"
+ },
+ "ygelfand/echolocal-hacs": {
+  "what": "EchoLocal 韌體的 Home Assistant 選配伴侶整合。EchoLocal 本身講 ESPHome 原生 API、不裝這個也能被 HA 接管；此整合額外提供裝置自訂卡片（含硬體外觀模擬與設定控制）、側邊欄儀表板集中管理所有裝置，以及 ESPHome 協議無法表達的額外功能。",
+  "verdict": "與主專案 echolocal 同作者同週雙上榜，是主專案熱度的自然外溢，星量也相稱。伴生型上榜，無需多慮。",
+  "tag": "real"
+ },
+ "denysdovhan/ha-ukr-hmc": {
+  "what": "把烏克蘭國家水文氣象中心（meteo.gov.ua）的天氣、輻射與水文數據接入 Home Assistant 的社群整合，支援 HACS 安裝，提供英文與烏克蘭文說明。README 聲明為獨立社群專案、與官方機構無關聯。",
+  "verdict": "作者是 spaceship-prompt 的 Denys Dovhan（3000+ followers），名氣有幫襯，但輻射數據對烏克蘭用戶是剛需，題材沉重而真實。給 real。",
+  "tag": "real"
+ }
+}

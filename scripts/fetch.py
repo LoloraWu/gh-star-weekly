@@ -99,9 +99,12 @@ def slim(r):
 def signals(rec, cat, board):
     """全部是可驗證的事實，不含任何判斷。公開版只印這些。"""
     o = owner(rec["owner_login"])
-    kw = cat.get("keyword", "").lower()
-    hay = " ".join([rec["name"], rec["desc"], rec.get("readme", ""),
-                    " ".join(rec["topics"])]).lower()
+    # topic 用連字號（home-assistant）、README 用空格（Home Assistant），
+    # 兩邊都正規化成空格才不會誤判成「沒出現」。
+    norm = lambda t: re.sub(r"[-_]+", " ", t.lower())
+    kw = norm(cat.get("keyword", ""))
+    hay = norm(" ".join([rec["name"], rec["desc"], rec.get("readme", ""),
+                         " ".join(rec["topics"])]))
     same_owner = sum(1 for x in board if x["owner_login"] == rec["owner_login"])
     return {
         "owner_type": o["type"],
