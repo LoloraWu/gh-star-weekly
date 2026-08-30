@@ -9,6 +9,9 @@
 """
 import json, os, subprocess, sys, time, datetime
 
+# 排程時 stdout 導向 log 檔會變成塊緩衝，進度訊息會全部卡到程式結束才吐。
+sys.stdout.reconfigure(line_buffering=True)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATE = sys.argv[1] if len(sys.argv) > 1 else datetime.date.today().isoformat()
 RAW = f"{ROOT}/data/raw/{DATE}.json"
@@ -41,7 +44,9 @@ same_owner_in_board > 1 表示同一帳號在本榜佔了多席。
 
 
 BATCH = 10          # 每批幾個 repo。40 個一次送實測要 6～25 分鐘且會整批失敗。
-TIMEOUT = 600       # 每批上限（秒）。小批次不需要 1500。
+TIMEOUT = 300       # 每批上限（秒）。mb 實測每批 96～105 秒，300 已是三倍餘裕。
+BUDGET = 1500       # 全部批次的總預算（秒）。超過就帶著已完成的收工，
+                    # 不讓「每批各自重試」把總時間乘上去——這是第一版的設計失誤。
 
 
 def ask(items, attempt=1):
@@ -86,7 +91,14 @@ def main():
 
     notes = {}
     failed = []
+    started = time.time()
     for bi, batch in enumerate(batches, 1):
+        spent = time.time() - started
+        if spent > BUDGET:
+            left = [x["name"] for b in batches[bi - 1:] for x in b]
+            print(f"  總預算 {BUDGET}s 用盡（已花 {spent:.0f}s），剩 {len(left)} 個不跑了")
+            failed.extend(left)
+            break
         names = [x["name"] for x in batch]
         t0 = time.time()
         got = ask(batch)

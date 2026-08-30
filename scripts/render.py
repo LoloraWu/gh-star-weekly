@@ -10,6 +10,9 @@ import json, os, sys, html, re, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from i18n import STR, LANGS, OTHER, SWITCH_LABEL, BASE
 
+# 排程時 stdout 導向 log 檔會變成塊緩衝，進度訊息會全部卡到程式結束才吐。
+sys.stdout.reconfigure(line_buffering=True)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 argv = sys.argv[1:]
 PUBLIC = "--public" in argv
@@ -197,7 +200,22 @@ def write(path, content):
     open(path, "w", encoding="utf-8").write(content)
 
 
+def resolve_date(root, wanted):
+    """跨午夜手動執行時，「今天」常常沒有資料。找不到就退回最新那份並講清楚。"""
+    if os.path.exists(f"{root}/data/raw/{wanted}.json"):
+        return wanted
+    import glob
+    have = sorted(glob.glob(f"{root}/data/raw/*.json"))
+    if not have:
+        sys.exit(f"data/raw/ 裡沒有任何資料，請先跑 fetch.py")
+    latest = os.path.basename(have[-1])[:-5]
+    print(f"⚠️  沒有 {wanted} 的資料，改用最新的 {latest}")
+    return latest
+
+
 def main():
+    global DATE
+    DATE = resolve_date(ROOT, DATE)
     raw = json.load(open(f"{ROOT}/data/raw/{DATE}.json"))
     npath = f"{ROOT}/data/notes/{DATE}.json"
     notes = json.load(open(npath)) if os.path.exists(npath) else {}

@@ -7,6 +7,9 @@
 import json, os, sys, time, base64, re, datetime, tomllib
 import urllib.parse, urllib.request, urllib.error
 
+# 排程時 stdout 導向 log 檔會變成塊緩衝，進度訊息會全部卡到程式結束才吐。
+sys.stdout.reconfigure(line_buffering=True)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = tomllib.load(open(f"{ROOT}/config.toml", "rb"))
 TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
