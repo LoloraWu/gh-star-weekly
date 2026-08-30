@@ -1,58 +1,144 @@
 # gh-star-weekly
 
-每週把 GitHub 上「新竄起」與「星數成長最快」的專案整理成一頁，分四個分類：
-**大雜燴 / Agent / Obsidian / Home Assistant**。
+**A weekly GitHub trending report that tells you *facts*, not opinions — so you can spot the impersonators and topic-squatters yourself.**
 
-網頁：<https://lolorawu.github.io/gh-star-weekly/>
+📊 **[See this week's report →](https://lolorawu.github.io/gh-star-weekly/)**
 
-## 兩種榜
+[![weekly fetch](https://github.com/LoloraWu/gh-star-weekly/actions/workflows/weekly.yml/badge.svg)](https://github.com/LoloraWu/gh-star-weekly/actions/workflows/weekly.yml)
+[![pages](https://img.shields.io/badge/report-live-0B6E63)](https://lolorawu.github.io/gh-star-weekly/)
+![no dependencies](https://img.shields.io/badge/dependencies-none-555)
 
-| 榜 | 怎麼算 | 什麼時候有 |
-|---|---|---|
-| 新 repo 總星數榜 | `created:>=N天前` 依星數排序 | 當次執行就有 |
-| 既有 repo 週成長榜 | 本週快照 − 上週快照 | **第二次執行起** |
+![preview](.github/assets/preview.jpg)
 
-星數成長沒有官方 API 欄位，只能自己每週存快照再 diff。第一次跑必然沒有成長榜，
-這是物理限制不是壞掉。
+---
 
-## ★/天
+## Why another trending list?
 
-`總星數 ÷ 建立天數`，用來區分「三天衝四千星」與「三年累積四千星」。
-強度條在**各分類內部**正規化 —— 跨分類的量級可以差到兩個數量級。
+Every "GitHub trending" page shows you a name, a star count, and a one-line description written by the repo's own author. That is not enough to answer the only question that matters: **is this thing real?**
 
-## 為什麼分兩段跑
+A repo with 968 stars in two days, called `metamask-desktop`, under an account named `MetaMask-AI`, looks completely legitimate in a normal trending list.
 
-抓取在 **GitHub Actions**，評註在 **本機（mini）**。
+This report puts the same row like this:
 
-- Actions 自帶 `GITHUB_TOKEN`，API 額度從 10 req/min、60 req/hr 變成 30 req/min、5000 req/hr。
-  抓 README 與帳號履歷才有足夠額度。
-- 更重要的是：**快照序列不能斷**。成長榜依賴每週都有一份快照，
-  放在 Actions 就不會因為本機沒開機而缺一週。
-- 評註需要 LLM，跑在本機用既有訂閱，不另外開 API 計費。
-  本機晚跑幾天只會讓網頁晚更新，不會破壞資料。
+> **MetaMask-AI/metamask-desktop** — 968 ★
+> `Owner: personal account · registered 2026-07-17 (44 days) · 0 followers · 1 public repo · no license`
 
-## 兩種輸出
+No accusation. No badge. Just the account's own record, printed the same way for **every** entry on the page. You draw your own conclusion — and you draw it in about one second.
 
-| | 內容 | 位置 |
-|---|---|---|
-| `--public` | **只有可驗證的事實**：帳號註冊日、follower 數、公開 repo 數、授權條款、關鍵字是否出現在 README | `docs/` → GitHub Pages |
-| 預設 | 額外含 LLM 的判斷與標籤（真材實料／獵奇／名人效應／蹭熱點／同質洗版／誤掛主題／疑似冒牌） | `output/`（未進版控） |
+## What every entry carries
 
-公開版刻意不下結論。同樣一組數字 ——「個人帳號、註冊 44 天、0 followers、
-1 個公開 repo、無授權條款」—— 讀者自己看得出來，不需要我替他們判斷。
+All of it comes straight from the GitHub API. Nothing is inferred, nothing is scored:
 
-## 跑法
+| Signal | Why it matters |
+|---|---|
+| Owner type, account age, followers, public repos | A three-week-old account with 0 followers shipping a crypto wallet reads differently from a 2015 organization |
+| License present | Brand-new "official" desktop apps with no license are worth a second look |
+| Description present | A 4,000-star repo whose author never wrote one line about it is itself information |
+| Keyword actually appears in name / description / README / topics | Catches topic-squatting: repos tagged `obsidian` that never mention Obsidian |
+| Same owner's count on this board | One org taking 3 of 10 slots is a fact worth seeing |
 
-```bash
-python3 scripts/fetch.py                 # 抓榜單 + 快照 + 事實訊號
-python3 scripts/annotate.py              # 讀 README 產評註（需要 claude CLI）
-python3 scripts/render.py --public       # → docs/
-python3 scripts/render.py                # → output/
+## ★/day
+
+Total stars ÷ days since creation.
+
+The difference between **4,484 ★ over 3 days** and **4,484 ★ over 3 years** is the entire story, and a raw star count hides it completely. Every row shows ★/day with a bar — normalized **within each board**, because the scales differ by two orders of magnitude (this week: 1,494 ★/day at the top of the general board, 9.2 ★/day at the top of the Obsidian board).
+
+## The growth board needs two runs
+
+GitHub has **no API field for "stars gained this week."** The Trending page has no public API either.
+
+So this keeps a weekly snapshot of `repo → stars` and diffs it. That means the growth board is empty on the very first run, and real from the second one on. Snapshots are committed to `data/snapshots/`, so star history accumulates into a dataset you can go back through.
+
+## Make it yours
+
+Everything is in `config.toml`. Four boards ship by default — a general one and three topic boards — but they are just queries:
+
+```toml
+[[category]]
+key     = "rust"
+label   = "Rust"
+query   = "topic:rust"
+days    = 30
+keyword = "rust"     # checked against name / description / README / topics
 ```
 
-分類與查詢條件全部在 `config.toml`。
+Then:
 
-## 資料
+```bash
+python3 scripts/fetch.py          # boards + snapshot + factual signals
+python3 scripts/render.py --public   # → docs/  (GitHub Pages)
+```
 
-`data/snapshots/` 是每週的 `repo → 星數` 快照，git 追蹤，
-所以星數歷史會自然累積成一份可回溯的資料集。
+Enable Pages on `main` → `/docs` and the Action publishes for you every week.
+
+## No dependencies, no API key
+
+`fetch.py` and `render.py` are **pure Python standard library**. No pip install, no virtualenv, nothing to keep alive.
+
+Running inside GitHub Actions, the built-in `GITHUB_TOKEN` raises the API budget from 10 req/min and 60 req/hr to **30 req/min and 5,000 req/hr** — enough to pull READMEs and owner histories for every entry. You do not create or store any token yourself.
+
+## Optional: prose summaries
+
+`scripts/annotate.py` sends each README to an LLM and writes a short plain-language summary of what the project does.
+
+**This is entirely optional.** Without it you still get every board, every number and every factual signal — you just lose the prose. The report is a static site either way.
+
+The script shells out to the [Claude Code](https://claude.com/claude-code) CLI so it runs on an existing subscription rather than a metered API key. Point it at whatever you prefer; it only needs something that takes a prompt and returns JSON.
+
+## How it runs
+
+| Where | What |
+|---|---|
+| GitHub Actions, weekly | `fetch.py` — boards, snapshot, factual signals → committed |
+| Anywhere with an LLM (optional) | `annotate.py` → `render.py` → published |
+
+Fetching is split out on purpose: **the snapshot series must not skip a week**, or the growth board loses its baseline. Actions guarantees that even when your own machine is off. Summaries arriving late only delay the page.
+
+## Limitations
+
+- **Topics are self-assigned.** Authors tag their own repos, and tag-squatting is common — this week's `topic:obsidian` board had 2 of 10 entries that were actually Obsidian tooling. The keyword and same-owner signals surface this, but nothing filters it out automatically.
+- **The star counts are GitHub's.** Purchased stars look identical to earned ones through the API. The account-history signals are the closest available proxy.
+- **The published report is written in Traditional Chinese.** The layout, signals and numbers are language-neutral; the labels live in `scripts/render.py` and the summary language is one line in `scripts/annotate.py`.
+
+## License
+
+MIT
+
+---
+
+<details>
+<summary><b>中文說明</b></summary>
+
+### 這是什麼
+
+每週把 GitHub 上「新竄起」與「星數成長最快」的專案整理成一頁，四個分類：大雜燴 / Agent / Obsidian / Home Assistant。
+
+**網頁：<https://lolorawu.github.io/gh-star-weekly/>**
+
+### 跟一般 trending 清單的差別
+
+一般清單只給你名字、星數，和作者自己寫的一句話——那回答不了唯一重要的問題：**這東西是真的嗎？**
+
+這份報告每一列都印同樣的事實欄位（帳號類型、註冊多久、followers、公開 repo 數、有無授權條款、關鍵字有沒有真的出現在 README、同一擁有者在本榜佔幾席）。**不下結論、不加標記**，讓讀者自己一秒看出問題。
+
+### ★/天
+
+總星數 ÷ 建立天數。「三天四千星」跟「三年四千星」是完全不同的兩件事，光看星數看不出來。強度條在**各分類內部**正規化——跨分類量級可以差兩個數量級。
+
+### 週成長榜要跑兩次才有
+
+GitHub **沒有「本週增加多少星」這個 API 欄位**，Trending 頁也沒有公開 API。所以只能自己每週存一份快照再 diff。第一次跑必然是空的，第二次起才有數字。快照進版控，星數歷史會自然累積成可回溯的資料集。
+
+### 零依賴、不用自己準備 token
+
+`fetch.py`、`render.py` 都是**純標準庫**。跑在 Actions 裡用內建的 `GITHUB_TOKEN`，額度從 10 req/min、60 req/hr 拉到 30 req/min、5000 req/hr。
+
+### 敘述文字是選配
+
+`annotate.py` 會讀 README 產出中文說明，但**拿掉它榜單與事實層照樣完整**，只是少了敘述。它呼叫 Claude Code CLI，走既有訂閱而不是按量計費的 API key。
+
+### 改成自己的分類
+
+全部在 `config.toml`，改 `query` 跟 `keyword` 就好。
+
+</details>
