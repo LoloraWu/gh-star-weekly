@@ -21,8 +21,9 @@ PROMPT = """你在替一份 GitHub 週榜寫評註。以下是本週上榜 repo 
 針對每一個 repo，輸出兩個欄位：
 
 1. `what`：這個 repo 做什麼。繁體中文，2～3 句，**只根據 README 陳述事實**，不要評價、不要形容詞堆砌。這段會出現在公開網頁上。
-2. `verdict`：它為什麼會上榜。繁體中文，1～3 句，可以下判斷。這段只給作者自己看。
-3. `tag`：從這個清單選一個 —— %s
+2. `what_en`：同一件事的英文版，2～3 句。**不是逐字翻譯**，是直接用英文把它講清楚——英文讀者看的是這句，寫得像原生英文技術文件，不要中式英文。同樣只陳述事實。
+3. `verdict`：它為什麼會上榜。繁體中文，1～3 句，可以下判斷。這段只給作者自己看。
+4. `tag`：從這個清單選一個 —— %s
    real=有實質內容／novelty=獵奇整活／fame=作者知名度帶動／trend=蹭當紅題材／
    flood=同期多個高度雷同專案之一／mistag=掛了不屬於它的 topic／scam=疑似冒名或釣魚
 
@@ -31,7 +32,7 @@ owner_repos 很少 + has_license 為 false，同時 repo 名稱蹭知名品牌 �
 keyword_present 為 false 表示分類關鍵字沒出現在名稱/描述/README/topics 任何地方。
 same_owner_in_board > 1 表示同一帳號在本榜佔了多席。
 
-只輸出 JSON，格式為 {"repo/full_name": {"what": "...", "verdict": "...", "tag": "..."}, ...}
+只輸出 JSON，格式為 {"repo/full_name": {"what": "...", "what_en": "...", "verdict": "...", "tag": "..."}, ...}
 不要有任何其他文字、不要包在 markdown code fence 裡。
 
 資料：
@@ -77,6 +78,9 @@ def main():
         sys.exit(f"回傳不是合法 JSON（原文存到 output/annotate-raw.txt）：{ex}")
 
     missing = [i["name"] for i in items if i["name"] not in notes]
+    no_en = [k for k, v in notes.items() if not v.get("what_en")]
+    if no_en:
+        print(f"⚠️  {len(no_en)} 筆缺英文說明：{no_en[:5]}")
     bad = [k for k, v in notes.items() if v.get("tag") not in TAGS]
     if missing:
         print(f"⚠️  {len(missing)} 個 repo 沒拿到評註：{missing[:5]}")

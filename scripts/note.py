@@ -10,7 +10,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VAULT = os.environ.get("VAULT", "/Users/lora/Documents/obs_vault/repo/GD_ObsidianVault")
 NOTE = f"{VAULT}/01_inbox/GitHub 週榜.md"
 DATE = sys.argv[1] if len(sys.argv) > 1 else datetime.date.today().isoformat()
-PAGE = "https://lolorawu.github.io/gh-star-weekly/"
+PAGE = "https://lolorawu.github.io/gh-star-weekly/zh/"  # 中文版；英文版在站台根目錄
 
 # 全部標籤都會標在條目上；但只有「結構性問題」才進頂端的 callout，
 # 否則 40 篇裡有一半會被列進去，等於沒有提示效果。

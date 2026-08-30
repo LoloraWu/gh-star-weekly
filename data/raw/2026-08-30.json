@@ -338,7 +338,8 @@
       "is_fork": false
      }
     }
-   ]
+   ],
+   "label_en": "General"
   },
   "agent": {
    "label": "Agent",
@@ -722,7 +723,8 @@
       "is_fork": false
      }
     }
-   ]
+   ],
+   "label_en": "Agent"
   },
   "obsidian": {
    "label": "Obsidian",
@@ -1110,7 +1112,8 @@
       "is_fork": false
      }
     }
-   ]
+   ],
+   "label_en": "Obsidian"
   },
   "ha": {
    "label": "Home Assistant",
@@ -1491,7 +1494,8 @@
       "is_fork": false
      }
     }
-   ]
+   ],
+   "label_en": "Home Assistant"
   }
  },
  "growth_base": null,

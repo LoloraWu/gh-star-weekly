@@ -150,7 +150,8 @@ def main():
         snapshot[key] = snap
 
         out["cats"][key] = {
-            "label": label, "note": cat["note"], "days": cat["days"],
+            "label": label, "label_en": cat.get("label_en", label),
+            "note": cat["note"], "days": cat["days"],
             "query": nq, "total": d["total_count"],
             "snapshot_total": s.get("total_count", 0), "new": board,
         }

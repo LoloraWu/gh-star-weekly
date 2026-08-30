@@ -9,6 +9,7 @@ min_stars_diff = 100   # 成長榜的星數門檻，低於此不列入
 [[category]]
 key    = "misc"
 label  = "大雜燴"
+label_en = "General"
 query  = "stars:>20"
 days   = 7
 note   = "不做任何相關性過濾"
@@ -17,6 +18,7 @@ keyword = ""           # 空 = 不做關鍵字比對
 [[category]]
 key    = "agent"
 label  = "Agent"
+label_en = "Agent"
 query  = "topic:ai-agent"
 days   = 30
 note   = "topic:ai-agent"
@@ -25,6 +27,7 @@ keyword = "agent"
 [[category]]
 key    = "obsidian"
 label  = "Obsidian"
+label_en = "Obsidian"
 query  = "topic:obsidian"
 days   = 60
 note   = "topic:obsidian"
@@ -33,6 +36,7 @@ keyword = "obsidian"
 [[category]]
 key    = "ha"
 label  = "Home Assistant"
+label_en = "Home Assistant"
 query  = "topic:home-assistant"
 days   = 30
 note   = "topic:home-assistant"

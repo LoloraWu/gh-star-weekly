@@ -2,7 +2,7 @@
 
 **A weekly GitHub trending report that tells you *facts*, not opinions — so you can spot the impersonators and topic-squatters yourself.**
 
-📊 **[See this week's report →](https://lolorawu.github.io/gh-star-weekly/)**
+📊 **[See this week's report →](https://lolorawu.github.io/gh-star-weekly/)**　·　[中文版](https://lolorawu.github.io/gh-star-weekly/zh/)
 
 [![weekly fetch](https://github.com/LoloraWu/gh-star-weekly/actions/workflows/weekly.yml/badge.svg)](https://github.com/LoloraWu/gh-star-weekly/actions/workflows/weekly.yml)
 [![pages](https://img.shields.io/badge/report-live-0B6E63)](https://lolorawu.github.io/gh-star-weekly/)
@@ -98,7 +98,7 @@ Fetching is split out on purpose: **the snapshot series must not skip a week**, 
 
 - **Topics are self-assigned.** Authors tag their own repos, and tag-squatting is common — this week's `topic:obsidian` board had 2 of 10 entries that were actually Obsidian tooling. The keyword and same-owner signals surface this, but nothing filters it out automatically.
 - **The star counts are GitHub's.** Purchased stars look identical to earned ones through the API. The account-history signals are the closest available proxy.
-- **The published report is written in Traditional Chinese.** The layout, signals and numbers are language-neutral; the labels live in `scripts/render.py` and the summary language is one line in `scripts/annotate.py`.
+- **Only English and Traditional Chinese ship today.** Interface strings live in `scripts/i18n.py` — one dict per language, 40 keys, and `render.py` needs no changes to gain a third. Project summaries are written directly in each language by the optional annotation step, not machine-translated from one to the other.
 
 ## License
 
