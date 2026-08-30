@@ -120,6 +120,9 @@ def signals(rec, cat, board):
 
 def main():
     g = CFG["general"]
+    # git 不追蹤空目錄，乾淨 clone（例如 Actions runner）上這些夾不存在
+    for sub in ("data/snapshots", "data/raw", "data/notes", "output"):
+        os.makedirs(f"{ROOT}/{sub}", exist_ok=True)
     out = {"generated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
            "date": TODAY.isoformat(), "authed": bool(TOKEN), "cats": {}}
     snapshot = {}
