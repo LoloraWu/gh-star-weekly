@@ -1,0 +1,39 @@
+# gh-star-weekly 設定檔。調整分類與查詢條件只動這個檔。
+
+[general]
+per_board      = 10    # 每個分類榜單顯示幾篇
+snapshot_top   = 300   # 每分類存幾筆快照（供下週算成長）
+readme_chars   = 900   # README 擷取長度
+min_stars_diff = 100   # 成長榜的星數門檻，低於此不列入
+
+[[category]]
+key    = "misc"
+label  = "大雜燴"
+query  = "stars:>20"
+days   = 7
+note   = "不做任何相關性過濾"
+keyword = ""           # 空 = 不做關鍵字比對
+
+[[category]]
+key    = "agent"
+label  = "Agent"
+query  = "topic:ai-agent"
+days   = 30
+note   = "topic:ai-agent"
+keyword = "agent"
+
+[[category]]
+key    = "obsidian"
+label  = "Obsidian"
+query  = "topic:obsidian"
+days   = 60
+note   = "topic:obsidian"
+keyword = "obsidian"
+
+[[category]]
+key    = "ha"
+label  = "Home Assistant"
+query  = "topic:home-assistant"
+days   = 30
+note   = "topic:home-assistant"
+keyword = "home assistant"
