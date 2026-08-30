@@ -1,9 +1,10 @@
 name: weekly fetch
 
-# 每週六 00:10 UTC = 台北 08:10
+# 週五 20:10 UTC = 台北週六 04:10。
+# 刻意排在 mini 的排程（05:30）之前，讓 mini 拿到的是當天的新資料。
 on:
   schedule:
-    - cron: "10 0 * * 6"
+    - cron: "10 20 * * 5"
   workflow_dispatch:
 
 permissions:
