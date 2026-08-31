@@ -1,0 +1,242 @@
+{
+ "sapientinc/PRAXIST": {
+  "what": "Praxist 是一套自主研究系統，把研究當成持續進行的流程而非一連串各自獨立的提示。它會協調多個平行的研究節點、由任務自己負責評估、保留可追溯的證據，並在世代之間做綜合。README 定位的使用時機是：專案已在運行、目標可量化，但還不知道最佳路徑該往哪走。安裝走單一指令的本機精靈，涵蓋 Fair Source 授權、使用者條款、執行設定檔與 Codex skills。",
+  "what_en": "Praxist runs research as a persistent process instead of a string of disconnected prompts. It coordinates parallel research peers, hands evaluation to the task that owns it, keeps durable evidence, and synthesizes across generations. It is aimed at projects that are already running against a measurable objective but have no clear path forward; setup is a single command that walks through the Fair Source license, runtime profile, credentials, and Codex skills.",
+  "verdict": "sapientinc 就是 HRM 那家，發什麼都會被盯著看，4 天 4800 星、日增 1200 幾乎全是這個招牌帶的。內容不是空殼，但這個速度不是內容跑出來的。",
+  "tag": "fame"
+ },
+ "HEJustinSun/my-girlfriend-jingtian-latex": {
+  "what": "一個 5 x 8 英寸的 XeLaTeX 排版工程，標題為「我的女友景甜」。README 只寫了編譯需求：XeLaTeX 與標準 TeX Live 發行版。除此之外沒有其他說明、沒有描述欄、沒有授權。",
+  "what_en": "A XeLaTeX typesetting project laid out at 5 x 8 inches, titled \"My Girlfriend Jing Tian.\" The README documents nothing but the build requirements: XeLaTeX and a standard TeX Live distribution. There is no description, no license, and no further explanation.",
+  "verdict": "帳號 6 天大、只有這一個 repo，卻已經 3328 followers——典型的整活爆紅路徑，星星買的是梗不是排版。TeX 只是載體。",
+  "tag": "novelty"
+ },
+ "XiaoDuoYa/codex-with-chatgpt": {
+  "what": "把 ChatGPT 網頁版接成 Codex 的規劃與 review 端：思考交給你已經付費、額度常閒置的網頁訂閱，Codex 只負責執行。不用 API Key、不架反向代理，走官方網頁加一個唯讀的 MCP 橋接。",
+  "what_en": "Bridges the ChatGPT web app into Codex as its planning and review brain, so the thinking runs on the subscription you already pay for while Codex only executes. It uses the official web session plus a read-only MCP bridge — no API keys and no reverse proxy.",
+  "verdict": "打中一個所有人都在痛的點：訂閱額度閒置、agent 額度燒光。做法具體、限制講得清楚，三天 1600 星是需求真實。",
+  "tag": "real"
+ },
+ "MetaMask-AI/metamask-desktop": {
+  "what": "自稱 Windows／macOS／Linux 的跨平台加密貨幣錢包桌面應用，用來管理 Ethereum 錢包與 ERC-20／ERC-721 資產，並內建 Web3 provider 連接 dApp。README 自己寫明本專案與 MetaMask 或 ConsenSys 無關、未獲官方背書。主要語言為 CSS。",
+  "what_en": "Presents itself as a cross-platform desktop wallet for Windows, macOS, and Linux that manages Ethereum wallets and ERC-20/ERC-721 assets and ships a built-in Web3 provider for connecting to dApps. The README states outright that the project is not affiliated with or endorsed by MetaMask or ConsenSys. The repository's primary language is CSS.",
+  "verdict": "帳號名 MetaMask-AI、45 天大、0 followers、只有這一個 repo、沒授權，主語言是 CSS 卻號稱桌面錢包，README 還留著未替換的 `:contentReference` 佔位符——生成內容加冒名。這是要碰私鑰的東西，別碰。",
+  "tag": "scam"
+ },
+ "wide-trace/open-higgsfield": {
+  "what": "一個瀏覽器裡的影像與影片生成工作台，號稱是 Higgsfield AI 的開源替代品：單一 prompt 列、每個模型各自的設定、所有完成的產出集中在同一個 gallery，目錄涵蓋 12 個影像與 28 個影片模型。README 同時提供 openhiggsfield.ai 的線上版，使用方式是把自己的平台金鑰（id:secret）填進去。",
+  "what_en": "A browser-based studio for image and video generation, pitched as an open-source alternative to Higgsfield AI: one prompt bar, per-model settings, and a single gallery of finished runs across a catalog of 12 image and 28 video models. The README also points to a hosted instance at openhiggsfield.ai, where you paste your own platform key (id:secret) to start generating.",
+  "verdict": "帳號 5 天大、0 授權、只有這一個 repo，名字直接蹭 Higgsfield，然後導流到自架站點要你貼平台金鑰——這組合先當釣魚看待。要試就自己 clone 跑，別在對方的 hosted 版輸入任何 key。",
+  "tag": "scam"
+ },
+ "Nanako0129/sepia": {
+  "what": "一個可攜的 Agent Skill，用於去除 AI 寫作痕跡，支援 Claude Code、Codex、Grok Build 與 Antigravity，共用同一份 SKILL.md。小說先修敘事結構再談用詞，專業文件（release notes、PR 回覆、事後檢討、工單、技術文章）則各自套用符合該場合的規則。提供 write、review（只診斷）、refactor（最小改動）、recreate（全文重寫）四種操作，做法依據的是 StoryScope 論文對敘事層特徵的分類結果，而非一般 humanizer 的字詞替換。",
+  "what_en": "A portable Agent Skill for de-AI-ing writing across Claude Code, Codex, Grok Build, and Antigravity, from a single canonical SKILL.md. Fiction gets its narrative architecture repaired before any word-level editing; professional documents — release notes, PR replies, postmortems, tickets, technical articles — each get rules matched to their venue. Four operations are exposed: write, review (diagnose only), refactor (minimal edits), and recreate (full rewrite), grounded in StoryScope's finding that narrative-layer features, not word choice, are what give AI text away.",
+  "verdict": "humanizer 滿地都是，這個的差別在它指出「大家都在改的那一層根本不是判別層」，而且有論文撐。做法明確、有分場合，不是換同義詞那種。",
+  "tag": "real"
+ },
+ "bryllim/workout-guide": {
+  "what": "一套開放的健身動作插畫庫，收錄 302 個動作、每個動作三個一致的分解畫格，附帶一個型別完整、不綁框架的 npm 套件與可搜尋的靜態 gallery。姿勢原圖來自 CC BY-SA 4.0 授權的 Everkinetic，作者在此之上補了動作、動畫格、資產正規化、結構化 metadata 與套件 API。整個 repo 是 npm workspace monorepo。",
+  "what_en": "An open library of 302 exercise illustrations, each with three consistent frames, shipped as a typed framework-neutral npm package alongside a searchable static gallery. The original pose artwork comes from Everkinetic under CC BY-SA 4.0; this project adds exercises, animation frames, normalized assets, structured metadata, and package APIs on top. The repo is an npm workspace monorepo.",
+  "verdict": "健身 app 要用的插畫向來只能買或自己畫，這裡直接給 302 個、授權乾淨、還包好 npm。是有人真的把苦工做完了的那種 repo。",
+  "tag": "real"
+ },
+ "Tencent/WeMM-Embedding": {
+  "what": "騰訊微信視覺團隊釋出的通用多模態 embedding 模型系列，為文字、影像、影片、視覺文件與交錯的多模態輸入提供統一表示。目前有 2B、4B、9B 三個尺寸，權重放在 Hugging Face，皆支援 Matryoshka 多段維度（64 起跳，最高到 4096）。",
+  "what_en": "A family of universal multimodal embedding models from Tencent's WeChat Vision team, producing unified representations for text, images, video, visual documents, and interleaved multimodal inputs. Three sizes — 2B, 4B, and 9B — are released on Hugging Face, each supporting Matryoshka dimensions from 64 up to 4096.",
+  "verdict": "多模態 embedding 是 RAG 的實際瓶頸，開權重、三個尺寸、還給 Matryoshka 維度，落地成本直接下來。騰訊招牌有加分，但東西本身站得住。",
+  "tag": "real"
+ },
+ "amosblomqvist/learn": {
+  "what": "作者個人的 AI 學習系統，出自他的影片〈How I Use AI to Learn Things〉，以 pi 設定的形式原樣分享。內容包含把教學理念編碼成的 skill（skills/teach/）、產生最小可用圖解的 skills/visualize/，以及幾個擴充：用 UI 彈窗向使用者提問、附即時對錯與解說的評分測驗、把 markdown 檔綁進 session、視覺化工具。",
+  "what_en": "The author's personal AI learning system, built for himself and shared as-is, packaged as a pi configuration and accompanying his video \"How I Use AI to Learn Things.\" It encodes a teaching philosophy as a skill, adds a visualize skill that produces a minimal correct diagram when an idea reads better as a picture, and includes extensions for asking the user questions through a UI popup, graded quizzes with instant feedback, markdown session logs, and visualization tooling.",
+  "verdict": "README 自己說了是影片的附件、也自承是個人自用原樣丟出。星星來自影片流量而非 repo 本身，內容偏薄。",
+  "tag": "fame"
+ },
+ "kacperkapusciak/goldie": {
+  "what": "替 iOS app 產生 App Store 截圖與預覽影片的 CLI，設計成給 coding agent 用（人也能用）。它接在 argent 之後：argent 在模擬器上重播流程，goldie 把擷取的畫面套上裝置外框、背景與標題，把片段接成預覽影片，並比對 Apple 的上架規則檢查結果。因為是驅動模擬器，所以與框架無關，SwiftUI、UIKit、Flutter、React Native、Kotlin Multiplatform 都一樣。需要 macOS、iOS 模擬器、Node 20 以上與 ffmpeg。",
+  "what_en": "A CLI that generates App Store screenshots and preview videos for iOS apps, built for coding agents to drive (humans too). It picks up where argent leaves off: argent replays flows on a simulator, then goldie frames the captures with a device bezel, background, and headline, stitches the clips into a preview video, and validates the output against Apple's upload rules. Because it works through the simulator, it is framework-agnostic across SwiftUI, UIKit, Flutter, React Native, and Kotlin Multiplatform. Requires macOS with iOS simulators, Node 20+, and ffmpeg.",
+  "verdict": "App Store 截圖是每個獨立開發者都得手工做一次的雜事，這個把它自動化到能塞進 agent 流程，還順手驗 Apple 的規格。作者是 React Native 圈子的熟面孔，有加成，但東西本身就成立。",
+  "tag": "real"
+ },
+ "fuxicodex/Fuxi": {
+  "what": "FuXi 是一個跑在終端機的 AI coding agent，提供 TUI 介面讀寫檔案、執行指令與呼叫工具，並在多家 LLM 供應商之間做成本導向的路由與自動故障轉移。README 說它以 Go 撰寫、發佈為單一靜態二進位檔、無執行期依賴，並支援 MCP client 與自我更新。定位是相容任何 OpenAI 格式模型的 Claude Code 替代品。",
+  "what_en": "FuXi is a terminal-based AI coding agent with a TUI for reading and editing files, running commands, and calling tools, with cost-aware routing and automatic failover across LLM providers. The README describes it as written in Go and shipped as a single static binary with no runtime dependencies, acting as an MCP client and updating itself. It is positioned as a provider-agnostic Claude Code alternative that works with any OpenAI-compatible model.",
+  "verdict": "27 天 3068 星、日增破百，吃的是「provider-agnostic Claude Code 替代品」這個本季最熱的坑位。可疑點：帳號 2026-06 才開、名下只有這一個 repo，且 GitHub 判定主語言是 Python，但 README 通篇宣稱 Built in Go / 單一靜態二進位——說法跟倉庫實際內容對不上，值得下載 release 實測再信。",
+  "tag": "trend"
+ },
+ "zouyuxuan122/DSH-Desktop-EAC": {
+  "what": "把官方 DeepSeek Harness（@deepseek-ai/dsh）包成開箱即用的 Windows 桌面客戶端，內建 Node.js、npm 與 dsh，提供安裝版與可攜版。桌面端使用獨立的 web-desktop profile，與 CLI 共享 session 和 API Key 但插件環境分離；另附插件安裝前快照與回滾、10 款內建皮膚、檔案樹與行級 diff、內建終端機與預覽。",
+  "what_en": "A packaged Windows desktop client for the official DeepSeek Harness (@deepseek-ai/dsh), bundling Node.js, npm, and dsh in both installer and portable builds. It runs under a separate web-desktop profile that shares sessions and API keys with the CLI while keeping plugin environments isolated, and adds snapshot-and-rollback around plugin installs, ten built-in themes, a file tree with line-level diffs, a persistent terminal, and local preview.",
+  "verdict": "本週 dsh 桌面殼一口氣塞了四個進榜，這是其中之一。DeepSeek 官方只出 CLI，桌面缺口是真的，但四個專案做的是同一件事——包 Node、雙擊啟動、加皮膚——差異化只剩快照回滾和主題數量。17 天 1461 星是題材紅利，不是這個實作特別強。",
+  "tag": "flood"
+ },
+ "SaladDay/pi-from-scratch": {
+  "what": "用約 600 行 TypeScript 從零實作一個能讀檔、改程式碼、執行指令的 coding agent，沿著 pi 的資料流拆解各個組件。專案同時是一個網站：文章與原始碼並列，閱讀過程中右側編輯器逐步補完程式碼，並附可逐行斷點的 Trace 檢視。執行 nano-pi 需要 Node.js 22 以上與任一 OpenAI 相容 API。",
+  "what_en": "A ~600-line TypeScript walkthrough that builds a coding agent capable of reading files, editing code, and running commands, decomposed along pi's data flow. The repo doubles as a companion site where prose and source sit side by side: the editor fills in the code as you read, and a step-through Trace viewer lets you follow execution line by line. Running nano-pi needs Node.js 22+ and any OpenAI-compatible endpoint.",
+  "verdict": "「從零手寫 X」這個體裁一直有效，而這篇把互動式閱讀（右側編輯器同步補完＋可斷點的 Trace）做出來了，成本明顯高於一般教學倉。作者 2021 年帳號、64 個 repo，不是速成號。教學型專案本來就容易累積星星，但這個給得不冤。",
+  "tag": "real"
+ },
+ "Tiger3807861189/DeepSeek-V4-J-Space-Capability-Realization-Report": {
+  "what": "一份純文件倉庫，內容是 DeepSeek-V4-Flash-Vision-Exp 在開啟／關閉「J-Space Cognition Suite V3.7」兩種條件下的 A/B 測試報告。README 宣稱在 Terminal-Bench 2.1、DeepSWE、GAIA 等基準的子集上固定模型、環境與取樣參數，只切換 J-Space，並同時記錄正確率與牆鐘時間。倉庫本身沒有程式碼。",
+  "what_en": "A documentation-only repository containing an A/B benchmark report for DeepSeek-V4-Flash-Vision-Exp run with and without \"J-Space Cognition Suite V3.7\". The README claims that model, environment, and sampling were held fixed across subsets of Terminal-Bench 2.1, DeepSWE, and GAIA, with only the J-Space toggle varying, measuring both accuracy and wall-clock time. No code ships with the repo.",
+  "verdict": "15 天 1034 星，但倉庫裡沒有任何可執行的東西——只有一份自證自家 prompt 套件有效的成績單，掛滿 deepseek / dsh-plugin topic 吃流量。帳號 2026-07 才開、名下 4 個 repo。自己跑、自己報、無第三方複現，這種「報告」的證據等級接近零；星數反映的是 DeepSeek V4 的熱度。",
+  "tag": "trend"
+ },
+ "yanliudesign/mono-color-skill": {
+  "what": "一個給 AI agent 用的圖像生成 skill，產出單色（或受控雙色）的編輯設計風格印刷影像，適用海報、zine、人像、包裝等。預設為受控雙色：一個主色版加一個範圍受限的輔色版，明確要求單色時則維持純單色；紙張底色從白、冷灰、淡米色中依畫面選取，復古處理只在指定時才套用。它保留的是一套視覺系統，而非複製參考圖。",
+  "what_en": "An image-generation skill for AI agents that produces one-ink (or controlled two-ink) editorial print imagery for posters, zines, portraits, packaging, and visual field notes. It defaults to two inks — one dominant plate plus a narrowly scoped accent — and stays strictly monochrome when a single ink is requested; substrates are picked from white, cool gray, or pale beige, and vintage treatment applies only on request. The skill encodes a visual system rather than copying any reference image.",
+  "verdict": "設計類 agent skill 的典型爆款：規則寫得夠死（幾個色版、什麼紙、什麼時候復古），輸出風格辨識度高，截圖轉推率高。作者 251 followers、28 個 repo，是有累積的設計背景帳號，不是空號。12 天 916 星屬合理範圍。",
+  "tag": "real"
+ },
+ "Zyrexnn/Cybermes": {
+  "what": "一個攻擊性資安與 bug bounty 自動化框架，針對授權範圍內的偵察、漏洞研究與結構化報告。組成包含以 Go 寫的效能工具、200 多個模組化的攻擊性安全 playbook，以及 token 最佳化的串流管線。可透過 MCP 掛進 AI coding 環境使用，也可以當獨立 CLI 執行。",
+  "what_en": "An offensive-security and bug-bounty automation framework for authorized reconnaissance, vulnerability research, and structured reporting. It combines Go-based performance utilities, 200+ modular offensive playbooks, and token-optimized streaming pipelines. It can be driven from an AI coding environment over the Model Context Protocol or run standalone as a CLI.",
+  "verdict": "「agent + 資安」目前是高轉換題材，但這個不是只有 README：200+ playbook、Go 工具鏈、MCP 接口都是實作量。作者 2024 年帳號、51 個 repo，長期在這個領域。12 天 672 星在資安圈算正常擴散速度。",
+  "tag": "real"
+ },
+ "vibeinging/dsh-desktop": {
+  "what": "DeepSeek Harness 的社群桌面發行版，直接執行官方 dsh npm runtime 與官方 dsh web app，並預裝一組固定版本、經過驗證的社群插件 bundle。對話、檔案、Git、終端機、任務、Worktree 與插件市場都在同一個 DSH Profile 下運作。macOS Apple Silicon 版有 Developer ID 簽章並完成 Apple 公證，Windows 提供 .exe 安裝器。",
+  "what_en": "A community desktop distribution of DeepSeek Harness that runs the official dsh npm runtime and the official dsh web app directly, preloaded with a pinned and verified set of community plugin bundles. Chat, files, Git, terminal, tasks, worktrees, and the plugin marketplace all live in a single DSH profile. The Apple Silicon build is Developer ID signed and notarized; Windows ships an .exe installer.",
+  "verdict": "又一個 dsh 桌面殼。差別在它有做 macOS 公證、也不自己 fork web app 而是直接跑官方的，工程上比同批保守也比較誠實。但本週四個同類專案並排時，635 星更多是題材紅利分到的一份。",
+  "tag": "flood"
+ },
+ "jundizhou/easy-stock": {
+  "what": "一個給個人投資者的 A 股行情分析與研究桌面應用，以 Go 撰寫、本地優先。它聚合開盤啦、東方財富、新浪、財聯社等來源的行情、K 線、題材、漲停與資訊，整理成趨勢、題材、連板、情緒、量價等可計算的模型，並透過定時排程、內建瀏覽器與 agent 自動抓文、去重、歸檔與提煉觀點。功能含大 V 自動復盤、趨勢題材雷達、個股 AI 分析、持倉 AI 巡檢與本地研究記憶。",
+  "what_en": "A local-first desktop workbench in Go for retail investors researching China A-shares. It aggregates quotes, candles, themes, limit-up data, and news from sources such as Kaipanla, East Money, Sina, and Cailianshe, then models trend, theme diffusion, consecutive limit-ups, sentiment, and relative strength as computable structures. A scheduler, embedded browser, and agent loop crawl and deduplicate articles, archive them, and distil views, feeding per-stock AI analysis, portfolio review, and a persistent local research memory.",
+  "verdict": "不是「行情軟體旁邊放個聊天框」那種貼皮做法——它把 A 股語境（連板高度、題材擴散、情緒週期）拆成領域模型再交給 agent，這個切入點需要真的懂盤。作者只有 3 個 follower，24 天 630 星幾乎全靠內容本身在中文投資圈擴散。",
+  "tag": "real"
+ },
+ "myYangyunfan/dsh_desktop": {
+  "what": "DeepSeek Harness 的 Windows／macOS 桌面客戶端，內建獨立 Node runtime、npm 與 @deepseek-ai/dsh 及全部官方插件，免裝環境、雙擊啟動並載入原生視窗。提供便攜版與安裝版。v0.5.0 起桌面殼從 Electron 全面遷移到 Tauri 2，並加入「守護瀑布」機制讓壞插件或壞設定不會導致啟動白屏；使用者資料與舊版相容。",
+  "what_en": "A Windows and macOS desktop client for DeepSeek Harness that bundles a standalone Node runtime, npm, and @deepseek-ai/dsh with all official plugins, so it launches into a native window on double-click with no environment setup. Portable and installer builds are both offered. Since v0.5.0 the shell moved from Electron to Tauri 2 for a smaller footprint and faster startup, with a fallback chain that keeps a broken plugin or config from producing a blank window; user data carries over from older versions.",
+  "verdict": "本週第四個 dsh 桌面殼。Electron→Tauri 的遷移是這批裡最實在的工程動作，但也說明大家都在同一條賽道上比誰包得漂亮。帳號 2026-05 才開、0 followers，18 天 614 星——星數來自 dsh 生態的搜尋流量，不是作者聲量。",
+  "tag": "flood"
+ },
+ "fufankeji/deepseek-harness-studio": {
+  "what": "DeepSeek Harness 的零代碼桌面端，支援 Windows 與 macOS（目前為開發預覽版）。它以原生目錄選擇開啟本地專案、按 workspace 管理與搜尋會話，並支援重新命名、歸檔、fork 與歷史接續；長對話會依角色生成完整目錄供跳轉。插件面提供發現、AI 推薦、安裝前的版本／權限／相容性與風險檢查，以及啟用、停用、更新、卸載與失敗自動回滾，清單不一致時進入插件安全模式。另含 Preset 廣場與七套內建工作流。",
+  "what_en": "A no-code desktop front end for DeepSeek Harness on Windows and macOS, currently in developer preview. It opens local projects through a native directory picker, organizes and searches sessions per workspace, and supports rename, archive, fork, and resuming from history, with a role-indexed outline for navigating long conversations. On the plugin side it handles discovery and AI-assisted recommendations, pre-install checks of version, permissions, compatibility, and risk, plus enable/disable/update/uninstall with automatic rollback on failed transactions and a safe mode when the runtime manifest drifts. A preset gallery and seven built-in workflows ship with it.",
+  "verdict": "同批 dsh 桌面殼裡功能規劃最完整的一個，插件安裝的事務性回滾與安全模式是別家沒做到的層級，赋范空间（547 followers）的機構背書也幫了忙。但本質仍是同期四個高度雷同專案之一，且自承是開發預覽版——16 天 575 星該歸給題材而非成熟度。",
+  "tag": "flood"
+ },
+ "Awaker-OTE/readingspace-mn": {
+  "what": "Reading Space MN 是 MarginNote 4 的閱讀工作流插件，在文件選區、摘錄與腦圖卡片旁提供工具列入口。功能包含 AI 快速解釋與查詞、獨立問答面板（連接使用者自己的服務商與模型）、朗讀、內建瀏覽器查資料，以及把摘錄或卡片推送到本機 Obsidian。設定支援依指定範圍匯出、匯入與手動同步。",
+  "what_en": "Reading Space MN is a reading-workflow plugin for MarginNote 4 that adds a toolbar to text selections, excerpts, and mind-map cards. From there you can get AI explanations and dictionary lookups, ask follow-up questions in a separate Q&A panel backed by your own provider and model, play text aloud, open a browser to check sources, and push excerpts or cards into a local Obsidian vault. Plugin settings can be exported, imported, and synced manually within a defined scope.",
+  "verdict": "MarginNote 插件本身受眾窄，但這個把「AI 問答＋朗讀＋瀏覽器＋Obsidian 出口」全塞進閱讀現場的組合是真的有做，七國語言 README 也顯示認真經營。18 天 157 星、速度 8.7 是本榜最快的，帳號雖新（189 天、4 repo、1 follower）但有 license、有描述，看起來是新手作者的實作而非灌水。",
+  "tag": "real"
+ },
+ "NimaChu/my-wiki": {
+  "what": "My Wiki 是本地優先的知識管理專案，讓 AI Agent 負責知識的完整生命週期：保存 Reference 與原始檔、抽取正文、蒸餾成原子 Concept、建立關係與證據連結、回答問題並維護知識健康度。提供 CLI、視覺化「知識宇宙」網頁與 Viki 問答；知識以 Markdown、原始檔、快照和圖片存在使用者自己的資料夾。倉庫另附一個可單獨安裝到 Codex／Claude Code／OpenCode 的輕量 Skill，用來讓其他工作區的 Agent 呼叫已安裝的專案本體。",
+  "what_en": "My Wiki is a local-first knowledge base that hands the whole knowledge lifecycle to an AI agent: it stores references and originals, extracts readable text, distills atomic concepts, links them with evidence, answers questions, and audits knowledge health. It ships a CLI, a browsable \"knowledge universe\" visualization, and a Q&A interface called Viki, with everything kept as Markdown, source files, snapshots, and images in a folder you control — no cloud database, vector store, Obsidian, or paid API required. A separate lightweight skill in the same repo can be installed into Codex, Claude Code, or OpenCode so agents in other workspaces can call an installed My Wiki project.",
+  "verdict": "本週 Obsidian 分類裡的「AI agent 知識庫」洪流之一，題材（local-first + agent skill + 知識圖譜）幾乎跟同榜好幾個重疊，敘事詞彙也很像。內容看起來有做出東西，但速度只有 2.0，且明確標榜「不需要 Obsidian」卻被歸到這個分類——是蹭 agent skill 熱度的一批。",
+  "tag": "flood"
+ },
+ "KIRVO-REPORTING/video-to-notes": {
+  "what": "video-to-notes 是把 YouTube、Bilibili、TED 等 yt-dlp 支援的影片連結轉成筆記的本地優先 CLI，同時也是一個 Codex skill。它優先下載影片自帶字幕，沒有合適字幕時才用本地 Whisper 轉寫，產出逐字稿、有時間戳的 AI 摘要和可搜尋的 HTML 報告。可選擇匯出到 Notion 或 Obsidian 知識庫，筆記中的時間戳可點回原片。",
+  "what_en": "video-to-notes is a local-first CLI (and Codex skill) that turns YouTube, Bilibili, TED, and other yt-dlp-supported links into notes. It prefers the video's own captions and falls back to local Whisper transcription only when none are usable, producing a transcript, a timestamped AI summary, and a searchable HTML report. Output can optionally be exported to Notion or Obsidian, with every timestamp clickable back to the source video.",
+  "verdict": "「影片轉筆記」是這半年最擁擠的賽道，本榜同期就有 lecture-to-notes 打同一個位置。字幕優先、Whisper 墊底的設計是務實的，但沒有明顯的差異化。帳號 2013 天但只有 2 個 repo、3 個 follower，比較像是為這個專案重新啟用的帳號。",
+  "tag": "flood"
+ },
+ "AndrewRao114/vault-activity-heatmap": {
+  "what": "Vault Activity Heatmap 是 Obsidian 插件，把 vault 的編輯紀錄畫成 GitHub 貢獻圖樣式的熱力圖，支援桌面、iOS 與 Android 跨裝置同步。點某一天可以回看當天改了什麼、原本計畫什麼、還有什麼沒完成。另含每日任務、編輯時間軸、AI 週報／月報摘要、通知，以及只作用於面板的視覺主題。",
+  "what_en": "Vault Activity Heatmap is an Obsidian plugin that renders your vault's edit history as a GitHub-style contribution graph, synced across desktop, iOS, and Android. Squares darken with the number of notes touched that day, and clicking one opens what changed, what you planned, and what is still outstanding. It also provides daily tasks, edit timelines, AI weekly and monthly summaries, notifications, and panel-scoped visual themes.",
+  "verdict": "熱力圖本身是 Obsidian 社群做爛的東西，這個靠「跨裝置＋行動端」和 AI 週報加值。作者 49 followers 但帳號只有這一個 repo，看起來是專注做這一件事。104 星、速度 1.9 不算暴衝，屬於功能對到痛點的自然成長。",
+  "tag": "real"
+ },
+ "drpwchen/textbook-to-note": {
+  "what": "textbook-to-note 把使用者自己的 PDF 教科書轉成可被 AI 檢索的知識庫，並產出附完整引用、含插圖的結構化筆記。管線設計為本地優先，重活（解析、OCR、切分）幾乎不花 LLM token，只在最後用前沿模型撰寫筆記本文。",
+  "what_en": "textbook-to-note converts your own PDF textbooks into an AI-searchable knowledge base and into structured, fully cited notes that keep the figures. The pipeline is local-first and token-frugal: the heavy lifting — parsing, OCR, chunking — runs locally at near-zero LLM cost, and a frontier model is called only at the end, to write the note itself.",
+  "verdict": "作者是醫師，README 直接說明動機（專科教科書 40+ 本、手工做筆記已經跟不上），這種真實需求驅動的專案通常做得比較實在。「重活不燒 token、只在最後叫大模型」是有想過成本的設計，不是包一層 API。帳號 7 年、60 followers、20 repos，同一人本週上榜兩個，是實作能力帶動而非帳號炒作。",
+  "tag": "real"
+ },
+ "drpwchen/lecture-to-notes": {
+  "what": "lecture-to-notes 把課程或研討會錄影轉成結構化、有投影片配圖的筆記，並產生一個同步的 HTML 檢視器：影片、有時間戳的逐字稿與整理過的摘要並列在同一頁，影片播放時會高亮對應筆記，點筆記時間戳則跳轉影片。昂貴階段全部在本機執行——GPU 上的 Whisper ASR、影格擷取、OCR、以及判讀投影片語意的本地視覺模型；LLM 只在最後根據管線already 蒐集好的證據寫成文字。設計目標是可追溯性，筆記中的每個陳述都應能對回逐字稿的某個時間點。",
+  "what_en": "lecture-to-notes turns a lecture or conference recording into structured, slide-illustrated notes plus a synced HTML viewer that puts the video, a timestamped transcript, and the curated summary on one page — the video highlights the matching note as it plays, and clicking a note's timestamp seeks the video. Every expensive stage runs locally: Whisper ASR on your GPU, frame extraction, OCR, and a local vision model for slide semantics; an LLM is used only at the end, to turn the assembled evidence into prose. The stated design goal is traceability rather than summarization — each claim in the finished note should map back to a moment in the recording.",
+  "verdict": "同一位醫師作者的第二個專案，跟 textbook-to-note 共用同一套設計哲學：本地重活、LLM 只寫最後一哩、每句話可追溯回來源。相較同榜的 video-to-notes，它多做了投影片擷取、OCR 和影片-筆記雙向同步的檢視器，實作重量明顯不同。29 天 100 星、速度 3.4，是本榜第二快。",
+  "tag": "real"
+ },
+ "armourinfosec/Enterprise-Windows-Infrastructure-Security": {
+  "what": "這是一套以 Obsidian vault 形式發布的 Windows Server 管理與防禦性強化教材，設計為四個月、以實驗為主的課程（16 週、每天 1 小時）。內容從作業系統與命令列開始，涵蓋 Active Directory、群組原則、DNS、DHCP、檔案與網頁服務、遠端存取、備份、監控，以及藍隊／紫隊實務。",
+  "what_en": "An Obsidian-based knowledge base packaging a four-month, lab-driven curriculum in Windows Server administration and defensive hardening (16 weeks, about an hour a day). It runs from the operating system and command line through Active Directory, Group Policy, DNS, DHCP, file and web services, remote access, backup, and monitoring, ending in the blue- and purple-team practices used to keep a production Windows estate defensible.",
+  "verdict": "內容是真的教材，不是空殼，但它跟 Obsidian 的關係只是「筆記用 Obsidian 寫的」——掛 obsidian topic 讓它進了這個分類，實際上是資安課程。同一個組織本週在榜上佔三席，是一次性把整套課程 vault 推出來的結果。",
+  "tag": "mistag"
+ },
+ "armourinfosec/Linux-Administration-and-Server-Hardening": {
+  "what": "以實驗為主的 Linux 系統管理與伺服器強化課程，同時涵蓋 CentOS Stream 10 與 Debian 12 兩個發行版，共 29 個模組、20 個實驗、10 個企業級專案，對齊 RHCSA 與 LFCS 認證。內容從命令列、使用者與權限、套件與儲存、網路與自動化，延伸到 DNS、DHCP、Apache、Samba、NFS、LDAP、Squid、PXE、OpenWrt 等基礎服務。",
+  "what_en": "A four-month, lab-driven Linux administration and server-hardening curriculum covering both CentOS Stream 10 and Debian 12: 29 modules, 20 labs, and 10 enterprise projects, aligned to the RHCSA and LFCS certifications. It moves from the command line, users and permissions, packages and storage, networking, and automation into the infrastructure services — DNS, DHCP, Apache, Samba, NFS, LDAP, Squid, PXE, OpenWrt — that production environments run on.",
+  "verdict": "跟同組織另外兩個一樣是紮實教材，但這個更明確：keyword_present 為 false，「obsidian」在名稱、描述、README、topics 裡通通沒出現，純粹是被歸類演算法或 vault 形式掃進來的。內容跟 Obsidian 無關。",
+  "tag": "mistag"
+ },
+ "armourinfosec/Secure-PHP-Development": {
+  "what": "為期一個月的 PHP 安全開發課程筆記，31 個模組，從語言基礎與 PHP 8.2／8.3 新特性、OOP、資料庫到 REST API，再到對照 OWASP 的 PHP 漏洞清單。每個漏洞配有「先攻擊再修補」的實驗，授權為 CC BY 4.0。",
+  "what_en": "A one-month, lab-driven course on writing and auditing secure PHP: 31 modules spanning language fundamentals and modern PHP 8.2/8.3, OOP, databases, and REST APIs, then a full OWASP-mapped catalogue of PHP vulnerabilities. Each vulnerability comes with an exploit-then-fix lab — build it correctly, then see exactly how it breaks. Released under CC BY 4.0.",
+  "verdict": "「先寫對、再親手打破它」的教法是好的，內容也具體到 OWASP 對照表這種程度。但同樣是資安教材掛 obsidian topic 進榜，跟筆記軟體無關。這是 armourinfosec 本週三席的第三個，三個一起推、一起漲。",
+  "tag": "mistag"
+ },
+ "bepitulaz/obsidian-multivault-mcp": {
+  "what": "一個 MCP server，讓 Claude 讀寫放在 VPS 上的 Obsidian vault，單一部署即可服務多個 vault 與多位使用者。HTTP 模式下所有人共用同一個連接器 URL，由各自登入的通行短語決定路由到哪個私有 vault；stdio 模式則由 Claude Desktop 啟動時傳入的 vault 路徑決定。Server 跑在 VPS 上，直接存取檔案系統。",
+  "what_en": "An MCP server that gives Claude read/write access to Obsidian vaults hosted on a VPS, serving multiple vaults and multiple users from a single deployment. In HTTP mode everyone connects to the same URL and their login passphrase determines which private vault they are routed to; in stdio mode the vault path passed by Claude Desktop decides. The server runs on the VPS with direct filesystem access to the vaults.",
+  "verdict": "Obsidian MCP 已經很多了，這個的差異點是多租戶：一台 VPS 服務多人、用通行短語分流，適合家庭或小團隊共用。作者帳號 16 年、268 followers、95 repos，是老手隨手做的工具。60 星、速度 1.1，是本榜最溫和的一個，靠實用性而非話題。",
+  "tag": "real"
+ },
+ "ThinkOffApp/CarWatch": {
+  "what": "把一台 Raspberry Pi 5 裝在車上，在本機跑 35B 參數模型，以 @名稱 加入 GroupMind 聊天室成為一個 agent，像其他 agent 一樣傳訊息給你：出發、抵達、行程摘要，車輛被撞時附上行車記錄器片段，並可從手機核准與回覆。README 展示在駕駛座以語音提問、由車上喇叭回答的三個例子——車況簡報、胎壓警示燈與實際胎壓、手冊裡的 E10 燃油說明，其中最後一個在斷網狀態下完成。",
+  "what_en": "CarWatch puts a Raspberry Pi 5 in the car, runs a 35B-parameter model locally, and joins your GroupMind rooms as a named agent that messages you like any other one: departures, arrivals, trip summaries, and dashcam clips when something hits the car, with approvals and replies from your phone. The README demos three questions asked by voice from the driver's seat and answered through the car's own speakers — a status brief, the tyre warning light with real pressures, and E10 fuel from the manual — the last of them with the internet switched off.",
+  "verdict": "車 + 本地大模型 + 行車記錄器的組合有實機影片與 v0.4 release，不是概念稿。22 天 267 星、12/日是本榜最快的，主要由 X 上的展示影片帶動；作者同系列還有 CodeWatch，是會經營傳播的那種作者。",
+  "tag": "real"
+ },
+ "FezVrasta/ha-rbac": {
+  "what": "為 Home Assistant 加上角色式權限控制。Home Assistant 原本只分 administrator 與「其他所有人」兩種使用者，而非管理員仍然看得到家裡每一支攝影機、每一道門鎖與每一個感測器；這個整合讓你自訂角色、決定每個角色能看到與操作什麼，再分派給訪客、小孩或家人，大家連的仍是同一個 Home Assistant。角色不限於人，也可以指向裝置，透過 HACS 安裝。",
+  "what_en": "Adds role-based access control to Home Assistant. Home Assistant ships with just two kinds of user — administrator and everyone else — and that second group still sees every camera, lock and sensor you own; this integration lets you define roles, decide what each one can see and do, and hand them out to guests, kids or family while everyone still talks to the same Home Assistant. Roles aren't limited to people, and the whole thing installs through HACS.",
+  "verdict": "FezVrasta 是 Popper.js 作者、2157 followers，8 天 47 星有很大一部分是名字帶的量。痛點本身是真的——HA 的兩層權限模型被抱怨很多年了——但同類嘗試以前也有，這次的差別在誰發的。",
+  "tag": "fame"
+ },
+ "fabiovit/casa-dashboard": {
+  "what": "一套透過 HACS 安裝的 Home Assistant 儀表板，不依賴傳統 Lovelace 卡片，改以動態的「房間」架構組版，可設定要顯示哪些 entity，並支援深色與淺色主題與響應式排版。README 為英義雙語，附有入口、廚房、陽台、車庫與電動車充電等各分頁截圖。4.1.1 是整理版：清理專案結構、統一前後端版本號，保留 2.x 世代已成熟的功能。",
+  "what_en": "An app-like dashboard for Home Assistant, installed via HACS, that builds its layout from a dynamic per-room architecture rather than conventional Lovelace cards. Entities are configurable, the layout is responsive, and both dark and light themes are supported, with screenshots for entrance, kitchen, balcony and garage/EV-charging pages. Version 4.1.1 is a consolidation release: the project was cleaned up and backend and frontend versioning brought into line, keeping the mature 2.x features in a tidier package.",
+  "verdict": "作者只有 3 followers，但專案已經迭代到 4.x，雙語文件加成套截圖，屬於長期經營型。HA dashboard 是常青流量類別，18 天 46 星、2.6/日算正常水位，不是爆紅。",
+  "tag": "real"
+ },
+ "sionetta/wm_animated_ha_card": {
+  "what": "一張受 Oikos 啟發的 Lovelace 卡片，把接在智慧插座上的普通洗衣機變成動畫儀表板元件，不需要智慧洗衣機。運轉中衣物會在玻璃後翻滾、門周圍的藍色弧線每 3 秒轉一圈、機身顯示已運轉時間，動畫全部是 CSS/SVG、無外部資源，並遵守 prefers-reduced-motion。另有脈動的 RUNNING/IDLE 狀態徽章、進度環與功率錶，介面提供英、俄、德、法四種語言。",
+  "what_en": "An Oikos-inspired Lovelace card that turns a dumb washing machine on a smart plug into an animated dashboard widget — no smart washer required. While a cycle runs, the laundry tumbles behind the glass, blue arcs circle the door once every three seconds and the machine display counts elapsed time; all of it is pure CSS and SVG with no external assets, and it respects prefers-reduced-motion. It also carries a pulsing RUNNING/IDLE badge, an elapsed-time progress ring and a power gauge, with UI available in English, Russian, German and French.",
+  "verdict": "作者只有 1 個 repo、2 followers，完全靠題材傳播：「不用買智慧洗衣機也能有漂亮卡片」踩中 HA 社群最普及的插座功率偵測玩法，而純 CSS 動畫截圖本身就是傳播素材。9 天 41 星、4.6/日，是本榜第二快。",
+  "tag": "real"
+ },
+ "d4vid87/weatherdesk": {
+  "what": "自架氣象儀表板，設定目標是 LAN 上的壁掛平板。支援 WeatherFlow Tempest、Ecowitt、Ambient Weather、Davis、AcuRite、La Crosse 以及任何走 Weather Underground 協定的主機，沒有氣象站時也可以只用指定地點的預報運作。純 vanilla JS 與原生 ES module，沒有建置步驟、框架、圖表函式庫或後端，所有請求由瀏覽器直接打免費公開 API，雷達圖來自作者自製的 NEXRAD 檢視器 HookEcho；面板可拖曳與縮放，版面存在 localStorage。",
+  "what_en": "A self-hosted weather dashboard aimed at a wall tablet on the local network. It reads from WeatherFlow Tempest, Ecowitt, Ambient Weather, Davis, AcuRite, La Crosse and any Weather Underground–protocol console, and runs on forecast data for a named location if you have no station at all. It is vanilla JS on native ES modules — no build step, framework, chart library or backend — with every call going browser-direct to a free public API, radar embedded from the author's own NEXRAD viewer, and draggable, resizable panels whose arrangement persists in localStorage.",
+  "verdict": "東西是真的，無建置步驟加多家氣象站協定支援也確實少見。但它掛了 home-assistant topic 才落進 HA 分類，描述和 README 前段列出的資料源全是氣象站 API 與公開服務，一句 HA 整合都沒提——歸類是 topic 帶進來的。",
+  "tag": "mistag"
+ },
+ "j0sp0r/m3-cards": {
+  "what": "一組以 Material 3 設計語言為底、原生實作的 Home Assistant Lovelace 卡片，用 TypeScript + Lit 寫成，不依賴 button-card、card-mod、mod-card 或 stack-in-card。單一 bundle（m3-cards.js）一次註冊 29 張卡片，共用同一套設計語言，按用途分類，例如能源與電力類提供每日／每時／每月長條圖，以及含預測的太陽能日間時間軸。README 標明專案仍在 beta，設定選項在版本之間可能變動。",
+  "what_en": "A set of Material 3–inspired Lovelace cards for Home Assistant, written natively in TypeScript and Lit with no dependency on button-card, card-mod, mod-card or stack-in-card. One bundle registers 29 cards that all share a single design language, grouped by what you want to show — the energy and power group, for instance, covers per-day/hour/month bar charts and a solar day timeline with forecast. The README flags the project as beta, with config options still liable to change between versions.",
+  "verdict": "「不用 button-card / card-mod」正好戳中 HA 客製卡片社群最累的一點：一張漂亮卡片經常要疊三層依賴。29 張一次到位加上 Material 3 的設計語言紅利，是實質內容。21 天 40 星、1.9/日，速度不快但穩。",
+  "tag": "real"
+ },
+ "ygelfand/echolocal-hacs": {
+  "what": "EchoLocal 的選配伴隨整合。EchoLocal 是把第二代 Amazon Echo Dot 變成 Home Assistant 語音衛星的韌體，因為它講的是 ESPHome 原生 API，不裝這個整合，Home Assistant 也已經能收編裝置、產生 assist satellite 與每項設定的 entity。這個 repo 在其上追加：模仿實體外觀、會偵測裝置顏色且可點擊的自訂卡片、選配的側邊欄儀表板（列出所有已連裝置與全域設定），以及 ESPHome 協定無法表達的額外功能。",
+  "what_en": "An optional companion integration for EchoLocal, the firmware that turns a 2nd-gen Amazon Echo Dot into a Home Assistant voice satellite. Because EchoLocal speaks the ESPHome native API, Home Assistant already adopts the device and exposes an assist satellite plus an entity per setting with none of this installed. What the integration adds on top is a custom card modelled on the real hardware with colour detection and clickable controls, an optional sidebar dashboard listing every attached device alongside global settings, and functionality the ESPHome protocol has no way to express.",
+  "verdict": "上榜的其實是伴隨整合而不是韌體本體，星星是 EchoLocal 外溢過來的——「把停產的 Echo Dot 從 Alexa 雲端救回來當本地語音衛星」在 HA 圈是長期高需求題材。27 天 28 星，速度已掉到 1/日，熱度在退。",
+  "tag": "real"
+ },
+ "Fallen-Hero/annunciator-grid-card": {
+  "what": "把工業用的警報／狀態／控制盤面搬進 Home Assistant 儀表板的一張卡片。它可以簡單到只是 ON 亮綠、OFF 中性的指示燈，也可以配成多重嚴重度的警報盤：條件規則、確認（ACK）流程與持久化 ACK 儲存、成對與跨格燈號、群組、變更警示、跨 entity 邏輯、自訂互動、歷史計次、診斷與動態樣式，並附視覺化編輯器與選配的警報輸出。README 明示這是儀表板／監控元件，未取得生命安全、火警、製程安全、保護電驛或緊急停機系統認證，不得作為保護人員或設備的唯一手段。",
+  "what_en": "A Lovelace card that brings an industrial alarm, status and control panel to Home Assistant dashboards. It scales from a plain green-when-ON indicator all the way to a multi-severity alarm panel with conditional rules, acknowledgement and persistent ACK storage, paired and spanning lamps, groups, change alerts, cross-entity logic, custom interactions, historical tallies, diagnostics and dynamic styling, all editable through a visual editor and with optional alarm outputs. The README states outright that this is a monitoring component and is not certified for life-safety, fire-alarm, process-safety or emergency-shutdown duty.",
+  "verdict": "作者 0 followers、只有 2 個 repo，純靠題材：HA 社群一直有一批人想把家裡搞成控制室，工業盤面截圖天生適合貼圖傳播。但功能深度（ACK 流程、持久化、跨 entity 規則）明顯超出裝飾性卡片，加上主動寫了安全免責，是認真做的。10 天 26 星、2.6/日。",
+  "tag": "real"
+ },
+ "konradk/hass": {
+  "what": "給 Omarchy 4 的 Quickshell 外掛，讓你直接在 Omarchy bar 上檢視與控制 Home Assistant 裝置：自選要顯示的裝置後，可開關燈、調整空調、控制媒體與開關窗簾。面板展開後可全鍵盤操作——j/k 或上下鍵在裝置列與展開的控制項間移動、左右鍵在選擇器或分頁間切換、enter 啟動、e 展開控制、s 開設定、r 重新整理、esc 關閉、tab 跳到下一個 bar 面板——並附 Tokyo Night、Catppuccin Latte、Solitude、Nord 等主題截圖。README 註明與 Home Assistant 專案無隸屬關係、未獲背書。",
+  "what_en": "A Quickshell plugin for Omarchy 4 that surfaces Home Assistant in the Omarchy bar: pick the devices you care about, then toggle lights, adjust climate, drive media and open covers without leaving the bar. With the panel open everything is keyboard-driven — j/k or arrows traverse device rows and expanded controls, enter activates, e expands, s opens settings, r refreshes, esc closes, tab moves to the next bar panel — and it ships themed for Tokyo Night, Catppuccin Latte, Solitude and Nord. It is not affiliated with or endorsed by the Home Assistant project.",
+  "verdict": "Omarchy 正在吸引一批人替它的 bar 寫外掛，這是其中之一；HA 只是被接上去的對象，真正帶動星數的是 Omarchy 自身的熱度。東西可用，但受眾被鎖死在 Omarchy 4 使用者，24 天 26 星、1.1/日就是這個天花板的體現。",
+  "tag": "trend"
+ },
+ "gbroeckling/esphome-devices": {
+  "what": "作者自家實際運作中的裝置的 ESPHome 設定檔集合，包含 ESP32-P4 語音助理、電子紙行事曆、LVGL 觸控調光器、Alarmo 鍵盤、HUB75 LED 矩陣與轉盤式控制器。README 明講這些不是打磨過的參考設計，而是從線上系統直接發布的可用設定，每個裝置各自的 README 都有 Status 段落，寫清楚哪些能用、哪些只有半套、作者踩過什麼坑。所有設定都帶 dashboard_import，可在 ESPHome dashboard 的 Adopt 流程直接收編，不需要編輯任何檔案。",
+  "what_en": "A collection of ESPHome configs for devices actually running in the author's house — ESP32-P4 voice assistants, an e-paper calendar, LVGL touch dimmers, an Alarmo keypad, a HUB75 LED matrix and rotary-dial controllers. The README is upfront that these are not polished reference designs but working configs lifted off a live system, and every device has a Status section recording what works, what half-works and what bit the author. Each config carries dashboard_import, so ESPHome's Adopt flow picks it up in about 30 seconds with no file editing.",
+  "verdict": "keyword_present=false——「home assistant」這幾個字沒出現在名稱、描述、README 前段或 topics 任何地方，它是靠 ESPHome 的生態關聯被歸進 HA 分類的。內容本身誠實可用（每台都寫 Status 與踩坑紀錄），但分類是榜單自己貼上去的。28 天 18 星、0.6/日，本榜最低。",
+  "tag": "mistag"
+ }
+}
