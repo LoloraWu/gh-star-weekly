@@ -23,8 +23,8 @@ STR = {
   "growth_pending_p": ("Weekly growth is this run's snapshot minus the previous one. "
                        "With only one snapshot on file there is nothing to diff. "
                        "Once a second snapshot lands, this section fills in with real numbers."),
-  "growth_q": "baseline <b>{base}</b> · ranked by absolute gain",
-  "th_rank": "#", "th_repo": "repo", "th_delta": "gained", "th_pct": "growth", "th_stars": "stars",
+  "growth_q": "baseline <b>{base}</b> · {d}-day interval · ranked by absolute gain",
+  "th_rank": "#", "th_repo": "repo", "th_delta": "gained in {d}d", "th_pct": "growth", "th_stars": "stars",
   "foot_vel": ("<b>★/day</b> is total stars ÷ days since creation — it separates "
                "\"4,000 stars in three days\" from \"4,000 stars over three years\". "
                "Bars are normalized <b>within each board</b>."),
@@ -59,8 +59,8 @@ STR = {
   "growth_pending_h": "本次無資料 — 這是預期行為",
   "growth_pending_p": ("週成長要靠「本次快照 − 上次快照」算出來。目前只有一份快照，算不出 diff。"
                        "第二份快照落地後，這一區就會填上真實數字。"),
-  "growth_q": "對照基準 <b>{base}</b> · 依絕對增量排序",
-  "th_rank": "#", "th_repo": "REPO", "th_delta": "本次增加", "th_pct": "成長率", "th_stars": "總星數",
+  "growth_q": "對照基準 <b>{base}</b> · 相隔 {d} 天 · 依絕對增量排序",
+  "th_rank": "#", "th_repo": "REPO", "th_delta": "{d} 天內增加", "th_pct": "成長率", "th_stars": "總星數",
   "foot_vel": ("<b>★/天</b> = 總星數 ÷ 建立天數，用來區分「三天四千星」與「三年四千星」。"
                "強度條在<b>各分類內部</b>正規化。"),
   "foot_facts": ("<b>這一版只陳述可驗證的事實</b>：帳號註冊日、follower 數、公開 repo 數、"

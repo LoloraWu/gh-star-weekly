@@ -102,9 +102,13 @@ def main():
         if pat.search(s):
             s = pat.sub(section, s, count=1)
         else:
-            marker = "\n---\n\n"
-            i = s.index(marker) + len(marker)
-            s = s[:i] + section + s[i:]
+            # 插在第一個「## 日期」標題之前。不能用 "---" 當錨點——
+            # 檔案裡第一個 --- 是 frontmatter 的結束線，會把新區塊插到 H1 前面。
+            m = re.search(r"^## \d{4}-\d{2}-\d{2}$", s, re.M)
+            if m:
+                s = s[:m.start()] + section + s[m.start():]
+            else:
+                s = s.rstrip() + "\n\n" + section
     else:
         s = (f'---\ncreated: "{now}"\nupdated: "{now}"\n'
              f'imageNameKey: gh-star-weekly\naliases:\n  - GitHub 週榜\ntags: []\n---\n\n'

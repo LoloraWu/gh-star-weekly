@@ -108,6 +108,14 @@ def cat_label(c, lang):
 def growth_section(raw, lang, T):
     g = raw.get("growth") or {}
     base = raw.get("growth_base")
+    # 排程是週對週，但手動觸發常常只隔一天——標籤要講實際間隔，不能寫死「本週」。
+    gap = 7
+    if base:
+        try:
+            gap = (datetime.date.fromisoformat(raw["date"])
+                   - datetime.date.fromisoformat(base)).days or 1
+        except Exception:
+            pass
     if not base or not any(g.values()):
         return f"""  <section id="growth">
     <div class="sechead"><h2>{T['growth_title']}</h2>
@@ -130,12 +138,12 @@ def growth_section(raw, lang, T):
         blocks.append(
             f'<h3 class="gsub">{e(lab)}</h3><div class="tablewrap"><table>'
             f'<thead><tr><th>{T["th_rank"]}</th><th>{T["th_repo"]}</th>'
-            f'<th class="num">{T["th_delta"]}</th><th class="num">{T["th_pct"]}</th>'
+            f'<th class="num">{T["th_delta"].format(d=gap)}</th><th class="num">{T["th_pct"]}</th>'
             f'<th class="num">{T["th_stars"]}</th></tr></thead>'
             f'<tbody>{trs}</tbody></table></div>')
     return f"""  <section id="growth">
     <div class="sechead"><h2>{T['growth_title']}</h2>
-      <div class="q">{T['growth_q'].format(base=e(base))}</div></div>
+      <div class="q">{T['growth_q'].format(base=e(base), d=gap)}</div></div>
     {''.join(blocks)}
   </section>"""
 
