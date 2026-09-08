@@ -13,7 +13,10 @@ sys.stdout.reconfigure(line_buffering=True)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = tomllib.load(open(f"{ROOT}/config.toml", "rb"))
 TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
-TODAY = datetime.date.today()
+# Actions runner 系統時區是 UTC，但整條排程（mini 的 preflight、週榜的「今天」）
+# 都是台北時區算的。開跑時間 20:10 UTC＝台北 04:10，UTC 當下仍是週五，
+# 若在這裡用系統本地日期會固定跟 mini 對不上一天。改用台北時區算「今天」。
+TODAY = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date()
 PAUSE = 0.35 if TOKEN else 6.5          # 未認證時 search 只有 10/min
 
 HDRS = {"User-Agent": "gh-star-weekly", "Accept": "application/vnd.github+json"}
